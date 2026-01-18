@@ -126,15 +126,15 @@ const DesignSystemLanding = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/getting-started">
-                <Button size="lg" className="group">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full px-4 sm:px-0">
+              <Link to="/getting-started" className="w-full sm:w-auto">
+                <Button size="lg" className="group w-full sm:w-auto min-h-[48px]">
                   Explore Design System
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
-              <a href="https://dhikaendi.com" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="group">
+              <a href="https://dhikaendi.com" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="group w-full sm:w-auto min-h-[48px]">
                   About Creator
                 </Button>
               </a>
@@ -153,12 +153,12 @@ const DesignSystemLanding = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {quickAccessCards.map((card, index) => (
               <ScrollReveal key={card.title} delay={index * 0.1}>
-                <Link 
+                <Link
                   to={card.href}
-                  className="group block p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-all duration-300"
+                  className="group block p-5 sm:p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-all duration-300"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
                     <card.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />

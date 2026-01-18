@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* Asto Design System - Premium Dark Fintech Theme */
 
@@ -244,14 +244,22 @@
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
-  
+
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-image: 
+    background-image:
       radial-gradient(ellipse 80% 50% at 50% -20%, hsla(14, 80%, 55%, 0.08), transparent),
       linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%);
     background-attachment: fixed;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
 
   .light body {
@@ -280,74 +288,105 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight text-foreground;
   }
-  
+
+  /* Responsive typography - mobile first */
   h1 {
-    @apply text-4xl md:text-5xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
   }
-  
+
   h2 {
-    @apply text-2xl md:text-3xl;
+    @apply text-xl sm:text-2xl md:text-3xl;
   }
-  
+
   h3 {
-    @apply text-xl md:text-2xl;
+    @apply text-lg sm:text-xl md:text-2xl;
   }
-  
+
   h4 {
-    @apply text-lg md:text-xl;
+    @apply text-base sm:text-lg md:text-xl;
   }
-  
+
   p {
-    @apply text-foreground-secondary leading-relaxed;
+    @apply text-foreground-secondary leading-relaxed text-sm sm:text-base;
   }
-  
+
   code {
-    @apply font-mono text-sm bg-muted px-1.5 py-0.5 rounded-sm;
+    @apply font-mono text-xs sm:text-sm bg-muted px-1.5 py-0.5 rounded-sm;
   }
-  
+
   pre {
-    @apply font-mono text-sm bg-muted p-4 rounded-lg overflow-x-auto;
+    @apply font-mono text-xs sm:text-sm bg-muted p-3 sm:p-4 rounded-lg overflow-x-auto;
   }
 }
 
 @layer components {
+  /* Document container - mobile first with proper padding */
   .doc-container {
-    @apply max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8;
+    @apply w-full max-w-4xl mx-auto px-4 py-6;
+    box-sizing: border-box;
   }
-  
+
+  @media (min-width: 640px) {
+    .doc-container {
+      @apply px-6 py-8;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .doc-container {
+      @apply px-8 py-10;
+    }
+  }
+
   .doc-section {
-    @apply mb-12 sm:mb-20;
+    @apply mb-10;
   }
-  
+
+  @media (min-width: 640px) {
+    .doc-section {
+      @apply mb-16;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .doc-section {
+      @apply mb-20;
+    }
+  }
+
   .doc-heading {
     @apply mb-4 pb-2 border-b border-border-subtle;
   }
-  
+
   .doc-prose {
     @apply text-foreground-secondary leading-relaxed space-y-4;
   }
-  
+
   .token-swatch {
     @apply w-12 h-12 rounded-lg border border-border-glass;
   }
-  
+
   .code-block {
     @apply bg-muted border border-border-glass rounded-xl overflow-hidden;
   }
-  
+
   .code-header {
     @apply px-4 py-2 bg-background-surface border-b border-border text-xs text-foreground-muted uppercase tracking-wider;
   }
-  
+
+  /* Navigation links with touch-friendly targets */
   .nav-link {
-    @apply block px-3 py-2 text-sm text-foreground-secondary rounded-lg transition-all duration-200;
+    @apply block px-3 py-2.5 text-sm text-foreground-secondary rounded-lg transition-all duration-200;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
-  
+
   .nav-link:hover {
     @apply text-foreground bg-sidebar-accent;
     transform: translateX(4px);
   }
-  
+
   .nav-link-active {
     @apply bg-sidebar-accent text-foreground;
   }
@@ -374,10 +413,20 @@
     transform: translateY(-2px);
   }
   
+  /* Tab triggers with touch-friendly sizing */
   .tab-trigger {
-    @apply px-3 sm:px-4 py-2 text-xs sm:text-sm text-foreground-muted hover:text-foreground border-b-2 border-transparent transition-colors whitespace-nowrap;
+    @apply px-3 py-2.5 text-xs text-foreground-muted hover:text-foreground border-b-2 border-transparent transition-colors whitespace-nowrap;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
-  
+
+  @media (min-width: 640px) {
+    .tab-trigger {
+      @apply px-4 text-sm;
+    }
+  }
+
   .tab-trigger-active {
     @apply text-foreground border-primary;
   }

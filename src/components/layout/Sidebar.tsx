@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { 
-  ChevronDown, 
-  ChevronRight, 
-  Home,
+import {
+  ChevronDown,
+  ChevronRight,
   Layers,
   Palette,
   Type,
@@ -24,8 +23,7 @@ import {
   ToggleLeft,
   AlignLeft,
   Rocket,
-  Settings,
-  Wrench
+  Wrench,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
@@ -97,7 +95,7 @@ const NavSection = ({ item, level = 0, onLinkClick }: NavSectionProps) => {
       <div className="mb-1">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-between w-full px-3 py-2 text-xs font-medium uppercase tracking-wider text-foreground-muted hover:text-foreground transition-colors"
+          className="flex items-center justify-between w-full px-3 py-2.5 text-xs font-medium uppercase tracking-wider text-foreground-muted hover:text-foreground transition-colors min-h-[44px]"
         >
           <span className="flex items-center gap-2">
             {Icon && <Icon className="w-4 h-4" />}
@@ -112,7 +110,12 @@ const NavSection = ({ item, level = 0, onLinkClick }: NavSectionProps) => {
         {isOpen && (
           <div className="ml-2 border-l border-border-subtle">
             {item.children.map((child) => (
-              <NavSection key={child.label} item={child} level={level + 1} onLinkClick={onLinkClick} />
+              <NavSection
+                key={child.label}
+                item={child}
+                level={level + 1}
+                onLinkClick={onLinkClick}
+              />
             ))}
           </div>
         )}
@@ -124,31 +127,33 @@ const NavSection = ({ item, level = 0, onLinkClick }: NavSectionProps) => {
     <Link
       to={item.href || "/design-system"}
       onClick={onLinkClick}
-      className={`nav-link ml-2 flex items-center gap-2 ${isActive ? "nav-link-active" : ""}`}
+      className={`nav-link ml-2 flex items-center gap-2 min-h-[44px] ${
+        isActive ? "nav-link-active" : ""
+      }`}
     >
-      {Icon && <Icon className="w-4 h-4" />}
+      {Icon && <Icon className="w-4 h-4 shrink-0" />}
       {item.label}
     </Link>
   );
 };
 
 interface SidebarProps {
-  isOpen?: boolean;
-  onClose?: () => void;
   isCollapsed?: boolean;
   onCollapse?: () => void;
 }
 
-export const Sidebar = ({ isOpen, onClose, isCollapsed, onCollapse }: SidebarProps) => {
+export const Sidebar = ({ isCollapsed }: SidebarProps) => {
+  // Sidebar is hidden on mobile (< md), shown on md+
+  // On mobile, the Navbar handles the mobile menu
   return (
-    <aside 
-      className={`fixed left-0 top-14 h-[calc(100vh-3.5rem)] w-64 glass-sidebar overflow-y-auto z-40 transition-transform duration-300 scrollbar-thin lg:translate-x-0 ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
+    <aside
+      className={`hidden md:block fixed left-0 top-14 h-[calc(100vh-3.5rem)] w-64 glass-sidebar overflow-y-auto z-40 transition-transform duration-300 scrollbar-thin ${
+        isCollapsed ? "-translate-x-full" : "translate-x-0"
       }`}
     >
       <nav className="p-4 space-y-1">
         {navigation.map((item) => (
-          <NavSection key={item.label} item={item} onLinkClick={onClose} />
+          <NavSection key={item.label} item={item} />
         ))}
       </nav>
     </aside>
