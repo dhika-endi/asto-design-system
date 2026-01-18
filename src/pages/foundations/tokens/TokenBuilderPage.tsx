@@ -1,14 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { PageHeader } from "@/components/docs/PageHeader";
 import { Section } from "@/components/docs/Section";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Copy, Check, Sparkles, Settings, ChevronDown, Save, Trash2, Download, Library } from "lucide-react";
+import { Copy, Check, Sparkles, Settings, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
-import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -21,22 +18,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  SavedToken,
-  saveToken,
-  getStoredTokens,
-  deleteTokens,
-  exportGenericFormat,
-  exportFigmaFormat,
-} from "@/lib/tokenStorage";
 
 // Category presets with colors
 const categoryPresets = [
@@ -60,22 +41,8 @@ const statePresets = ["default", "hover", "active", "focus", "disabled", "loadin
 // Settings types
 type SeparatorStyle = "-" | "_" | ".";
 type CaseStyle = "kebab" | "snake" | "camel" | "pascal";
-type ColorFormat = "hex" | "hsl" | "rgb";
-type DimensionUnit = "px" | "rem";
-type ExportFormat = "generic" | "figma";
 
 const TokenBuilderPage = () => {
-  // Library state
-  const [tokens, setTokens] = useState<SavedToken[]>([]);
-  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const [exportDialogOpen, setExportDialogOpen] = useState(false);
-  const [exportFormat, setExportFormat] = useState<ExportFormat>("generic");
-  const [exportOutput, setExportOutput] = useState("");
-
-  // Load tokens on mount
-  useEffect(() => {
-    setTokens(getStoredTokens());
-  }, []);
   // Token parts
   const [component, setComponent] = useState("button");
   const [property, setProperty] = useState("color");
@@ -83,131 +50,11 @@ const TokenBuilderPage = () => {
   const [variant, setVariant] = useState("primary");
   const [state, setState] = useState("default");
   const [copied, setCopied] = useState(false);
-  
+
   // Settings state
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [separator, setSeparator] = useState<SeparatorStyle>("-");
   const [caseStyle, setCaseStyle] = useState<CaseStyle>("kebab");
-
-  // Value state
-  const [tokenValue, setTokenValue] = useState("#AF4646");
-  const [colorFormat, setColorFormat] = useState<ColorFormat>("hex");
-  const [dimensionValue, setDimensionValue] = useState("16");
-  const [dimensionUnit, setDimensionUnit] = useState<DimensionUnit>("px");
-
-  // Determine value type based on property
-  const getValueType = () => {
-    if (["color", "gradient"].includes(property)) return "color";
-    if (["spacing", "size", "radius"].includes(property)) return "dimension";
-    return "other";
-  };
-
-  const valueType = getValueType();
-
-  const handleSaveToken = () => {
-    let value: string | undefined;
-    let format: string | undefined;
-
-    if (valueType === "color") {
-      value = tokenValue;
-      format = colorFormat.toUpperCase();
-    } else if (valueType === "dimension") {
-      value = `${dimensionValue}${dimensionUnit}`;
-      format = dimensionUnit;
-    }
-
-    saveToken({
-      name: generatedToken,
-      property,
-      value,
-      valueType,
-      format,
-    });
-
-    setTokens(getStoredTokens());
-    toast.success("Token saved to library");
-  };
-
-  // Library handlers
-  const handleSelectAll = (checked: boolean) => {
-    if (checked) {
-      setSelectedIds(new Set(tokens.map((t) => t.id)));
-    } else {
-      setSelectedIds(new Set());
-    }
-  };
-
-  const handleSelectToken = (id: string, checked: boolean) => {
-    const newSet = new Set(selectedIds);
-    if (checked) {
-      newSet.add(id);
-    } else {
-      newSet.delete(id);
-    }
-    setSelectedIds(newSet);
-  };
-
-  const handleDelete = () => {
-    if (selectedIds.size === 0) {
-      toast.error("No tokens selected");
-      return;
-    }
-    deleteTokens(Array.from(selectedIds));
-    setTokens(getStoredTokens());
-    setSelectedIds(new Set());
-    toast.success(`Deleted ${selectedIds.size} token(s)`);
-  };
-
-  const handleExport = () => {
-    const tokensToExport =
-      selectedIds.size > 0
-        ? tokens.filter((t) => selectedIds.has(t.id))
-        : tokens;
-
-    if (tokensToExport.length === 0) {
-      toast.error("No tokens to export");
-      return;
-    }
-
-    const output =
-      exportFormat === "generic"
-        ? exportGenericFormat(tokensToExport)
-        : exportFigmaFormat(tokensToExport);
-
-    setExportOutput(output);
-    setExportDialogOpen(true);
-  };
-
-  const handleCopyExport = () => {
-    navigator.clipboard.writeText(exportOutput);
-    toast.success("Copied to clipboard");
-  };
-
-  const handleDownloadExport = () => {
-    const blob = new Blob([exportOutput], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `tokens-${exportFormat}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    toast.success("Downloaded tokens.json");
-  };
-
-  const getPropertyBadgeColor = (property: string) => {
-    const colorMap: Record<string, string> = {
-      color: "bg-pink-500/20 text-pink-400 border-pink-500/30",
-      spacing: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-      radius: "bg-violet-500/20 text-violet-400 border-violet-500/30",
-      shadow: "bg-orange-500/20 text-orange-400 border-orange-500/30",
-      size: "bg-amber-500/20 text-amber-400 border-amber-500/30",
-      font: "bg-teal-500/20 text-teal-400 border-teal-500/30",
-      duration: "bg-sky-500/20 text-sky-400 border-sky-500/30",
-    };
-    return colorMap[property] || "bg-slate-500/20 text-slate-300 border-slate-500/30";
-  };
-
-  const isAllSelected = tokens.length > 0 && selectedIds.size === tokens.length;
 
   // Apply case transformation
   const applyCase = (str: string): string => {
@@ -294,26 +141,11 @@ const TokenBuilderPage = () => {
         <div className="max-w-4xl mx-auto">
           <PageHeader
             title="Token Generator"
-            description="Build consistent token names using our structured naming convention. Save tokens to your library for export."
+            description="Build consistent token names using our structured naming convention. Use AI tools or manual methods to create the actual token values."
           />
 
-          {/* Tabs */}
-          <Tabs defaultValue="builder" className="mb-8">
-            <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="builder" className="gap-2">
-                <Sparkles className="w-4 h-4" />
-                Builder
-              </TabsTrigger>
-              <TabsTrigger value="library" className="gap-2">
-                <Library className="w-4 h-4" />
-                Library ({tokens.length})
-              </TabsTrigger>
-            </TabsList>
-
-            {/* Builder Tab */}
-            <TabsContent value="builder">
-              {/* Settings Panel */}
-              <Section title="">
+          {/* Settings Panel */}
+          <Section title="">
           <Collapsible open={settingsOpen} onOpenChange={setSettingsOpen}>
             <CollapsibleTrigger className="w-full">
               <div className="flex items-center justify-between p-4 rounded-lg border border-border-subtle bg-background-subtle hover:bg-muted/50 transition-colors mb-4">
@@ -523,66 +355,7 @@ const TokenBuilderPage = () => {
               </div>
             </div>
 
-            {/* Value Input - conditional based on property type */}
-            {valueType === "color" && (
-              <div className="p-4 rounded-lg bg-background border border-border-subtle mb-4">
-                <div className="flex items-center gap-4">
-                  <Label className="text-sm font-medium shrink-0">Value</Label>
-                  <div className="flex items-center gap-2 flex-1">
-                    <input
-                      type="color"
-                      value={tokenValue}
-                      onChange={(e) => setTokenValue(e.target.value)}
-                      className="w-10 h-10 rounded border border-border-subtle cursor-pointer"
-                    />
-                    <Input
-                      value={tokenValue}
-                      onChange={(e) => setTokenValue(e.target.value)}
-                      className="flex-1 h-9 font-mono text-sm"
-                      placeholder="#AF4646"
-                    />
-                    <Select value={colorFormat} onValueChange={(v) => setColorFormat(v as ColorFormat)}>
-                      <SelectTrigger className="w-20 h-9">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="hex">HEX</SelectItem>
-                        <SelectItem value="rgb">RGB</SelectItem>
-                        <SelectItem value="hsl">HSL</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {valueType === "dimension" && (
-              <div className="p-4 rounded-lg bg-background border border-border-subtle mb-4">
-                <div className="flex items-center gap-4">
-                  <Label className="text-sm font-medium shrink-0">Value</Label>
-                  <div className="flex items-center gap-2 flex-1">
-                    <Input
-                      type="number"
-                      value={dimensionValue}
-                      onChange={(e) => setDimensionValue(e.target.value)}
-                      className="flex-1 h-9 font-mono text-sm"
-                      placeholder="16"
-                    />
-                    <Select value={dimensionUnit} onValueChange={(v) => setDimensionUnit(v as DimensionUnit)}>
-                      <SelectTrigger className="w-20 h-9">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="px">px</SelectItem>
-                        <SelectItem value="rem">rem</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Live Preview with Save Button */}
+            {/* Live Preview with Copy Button */}
             <div className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border-subtle">
               <code className="flex-1 text-base font-mono text-primary font-medium">{generatedToken}</code>
               <button
@@ -596,11 +369,10 @@ const TokenBuilderPage = () => {
                   <Copy className="w-5 h-5 text-foreground-muted" />
                 )}
               </button>
-              <Button onClick={handleSaveToken} size="sm" className="gap-2">
-                <Save className="w-4 h-4" />
-                Save
-              </Button>
             </div>
+            <p className="text-xs text-foreground-muted mt-3">
+              Copy this token name and use it in your design tools (Figma) or code. Use AI assistants like Claude or ChatGPT to generate token values following our design system foundations.
+            </p>
           </div>
         </Section>
 
@@ -671,136 +443,8 @@ const TokenBuilderPage = () => {
             </div>
           </div>
         </Section>
-            </TabsContent>
-
-            {/* Library Tab */}
-            <TabsContent value="library">
-              {/* Action Bar */}
-              <div className="flex flex-wrap items-center gap-3 p-4 rounded-lg border border-border-subtle bg-background-subtle mb-6">
-                <div className="flex items-center gap-2 mr-auto">
-                  <Checkbox
-                    id="select-all"
-                    checked={isAllSelected}
-                    onCheckedChange={handleSelectAll}
-                  />
-                  <label htmlFor="select-all" className="text-sm text-foreground-muted cursor-pointer">
-                    Select all ({tokens.length})
-                  </label>
-                </div>
-
-                <Select value={exportFormat} onValueChange={(v) => setExportFormat(v as ExportFormat)}>
-                  <SelectTrigger className="w-40 h-9">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="generic">Design Tokens</SelectItem>
-                    <SelectItem value="figma">Figma Variables</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                <Button
-                  size="sm"
-                  onClick={handleExport}
-                  disabled={tokens.length === 0}
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Export {selectedIds.size > 0 ? `(${selectedIds.size})` : "All"}
-                </Button>
-
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleDelete}
-                  disabled={selectedIds.size === 0}
-                  className="border-destructive text-destructive hover:bg-destructive/10"
-                >
-                  <Trash2 className="w-4 h-4 mr-2" />
-                  Delete ({selectedIds.size})
-                </Button>
-              </div>
-
-              {/* Token List */}
-              {tokens.length === 0 ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center border border-border-subtle rounded-lg bg-background-subtle">
-                  <Library className="w-12 h-12 text-foreground-muted mb-4" />
-                  <h3 className="text-lg font-medium text-foreground mb-2">No tokens saved yet</h3>
-                  <p className="text-sm text-foreground-muted max-w-md">
-                    Use the Builder tab to create and save tokens. They'll appear here for management and export.
-                  </p>
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  {tokens.map((token) => (
-                    <div
-                      key={token.id}
-                      className={`flex items-center gap-4 p-4 rounded-lg border transition-colors ${
-                        selectedIds.has(token.id)
-                          ? "border-primary/50 bg-primary/5"
-                          : "border-border-subtle bg-background-subtle hover:bg-muted/50"
-                      }`}
-                    >
-                      <Checkbox
-                        checked={selectedIds.has(token.id)}
-                        onCheckedChange={(checked) => handleSelectToken(token.id, !!checked)}
-                      />
-
-                      <div className="flex-1 min-w-0">
-                        <code className="text-sm font-mono text-primary truncate block">
-                          {token.name}
-                        </code>
-                      </div>
-
-                      {token.value && (
-                        <div className="flex items-center gap-2 shrink-0">
-                          {token.valueType === "color" && (
-                            <div
-                              className="w-6 h-6 rounded border border-border-subtle"
-                              style={{ backgroundColor: token.value }}
-                            />
-                          )}
-                          <code className="text-xs font-mono text-foreground-muted">
-                            {token.value}
-                          </code>
-                        </div>
-                      )}
-
-                      <Badge variant="outline" className={getPropertyBadgeColor(token.property)}>
-                        {token.property}
-                      </Badge>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </TabsContent>
-          </Tabs>
         </div>
       </main>
-
-      {/* Export Dialog */}
-      <Dialog open={exportDialogOpen} onOpenChange={setExportDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Export Tokens</DialogTitle>
-            <DialogDescription>
-              {exportFormat === "generic" ? "Generic Design Tokens Format" : "Figma Variables Format"}
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="relative">
-            <pre className="p-4 rounded-lg bg-background-subtle border border-border-subtle overflow-auto max-h-96 text-sm font-mono">
-              {exportOutput}
-            </pre>
-            <div className="absolute top-2 right-2 flex gap-2">
-              <Button variant="ghost" size="sm" onClick={handleCopyExport}>
-                <Copy className="w-4 h-4" />
-              </Button>
-              <Button variant="ghost" size="sm" onClick={handleDownloadExport}>
-                <Download className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
