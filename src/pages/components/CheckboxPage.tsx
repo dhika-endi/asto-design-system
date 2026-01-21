@@ -14,7 +14,7 @@ const InteractionTable = ({ states }: { states: Array<{ state: string; trigger: 
   <div className="overflow-hidden rounded-xl border border-border-glass">
     <table className="w-full text-sm">
       <thead>
-        <tr className="bg-background-surface border-b border-border-glass">
+        <tr className="bg-surface-elevated border-b border-border-glass">
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">State</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Trigger</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Visual Changes</th>
@@ -47,10 +47,10 @@ const VisualExample = ({
   const isDo = type === "do";
   return (
     <div className="space-y-0">
-      <div className="p-8 bg-background-surface rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
+      <div className="p-8 bg-surface-elevated rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
         {children}
       </div>
-      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-background-elevated rounded-b-lg border border-border-glass border-t-0`}>
+      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-surface-elevated rounded-b-lg border border-border-glass border-t-0`}>
         <div className="flex items-start gap-2">
           {isDo ? (
             <Check className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
@@ -105,7 +105,7 @@ const CheckboxOverview = () => (
 
     <Section title="Types">
       <div className="space-y-6">
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Single checkbox</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Used for binary choices like accepting terms or enabling a feature.
@@ -116,7 +116,7 @@ const CheckboxOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Checkbox group</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Multiple checkboxes that allow selecting several options from a list.
@@ -137,7 +137,7 @@ const CheckboxOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Indeterminate</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Shows partial selection when a parent checkbox has some but not all children selected.
@@ -224,7 +224,7 @@ const CheckboxSpecifications = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Property</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Default</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Description</th>
@@ -243,7 +243,7 @@ const CheckboxSpecifications = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Element</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Value</th>
             </tr>
@@ -280,7 +280,7 @@ const CheckboxInteractions = () => {
             { label: "Checked", checked: true, disabled: false },
             { label: "Disabled", checked: false, disabled: true },
           ].map((state) => (
-            <div key={state.label} className="p-4 bg-background-surface rounded-lg border border-border-glass text-center">
+            <div key={state.label} className="p-4 bg-surface-elevated rounded-lg border border-border-glass text-center">
               <p className="text-xs text-foreground-muted mb-3">{state.label}</p>
               <div className="flex justify-center">
                 <Checkbox checked={state.checked} disabled={state.disabled} className={state.className} />
@@ -311,7 +311,7 @@ const CheckboxAccessibility = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Key</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Action</th>
             </tr>
@@ -326,10 +326,10 @@ const CheckboxAccessibility = () => (
 
     <Section title="ARIA attributes">
       <ul className="list-disc list-inside space-y-2 text-foreground-secondary">
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">role="checkbox"</code> - Identifies the element as a checkbox</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-checked</code> - Indicates current state (true/false/mixed)</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-labelledby</code> or <code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-label</code> - Provides accessible name</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-disabled</code> - Indicates disabled state</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">role="checkbox"</code> - Identifies the element as a checkbox</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-checked</code> - Indicates current state (true/false/mixed)</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-labelledby</code> or <code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-label</code> - Provides accessible name</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-disabled</code> - Indicates disabled state</li>
       </ul>
     </Section>
 
@@ -430,7 +430,7 @@ const CheckboxTokens = () => (
     </Section>
 
     <Section title="Contrast compliance">
-      <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+      <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
         <ul className="list-disc list-inside space-y-2 text-sm text-foreground-secondary">
           <li>Check mark icon meets WCAG AA 4.5:1 contrast ratio against checked background</li>
           <li>Focus ring provides minimum 3:1 contrast against adjacent colors</li>

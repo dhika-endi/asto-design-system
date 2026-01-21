@@ -30,7 +30,7 @@ const ElevationPage = () => {
           {elevationTokens.slice(1).map((token, index) => (
             <div
               key={token.name}
-              className="p-6 bg-background-elevated rounded-lg"
+              className="p-6 bg-surface-elevated rounded-lg"
               style={{
                 boxShadow:
                   index === 0
@@ -58,7 +58,7 @@ const ElevationPage = () => {
         description="In dark interfaces, shadows are less visible. Combine shadows with surface color changes for clear depth."
       >
         <div className="space-y-6">
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">
               Surface layering strategy
             </h4>
@@ -69,21 +69,21 @@ const ElevationPage = () => {
             </p>
             <div className="flex gap-4">
               <div className="flex-1 p-4 bg-background rounded border border-border-subtle">
-                <p className="text-xs text-foreground-muted">Base (--background)</p>
+                <p className="text-xs text-foreground-muted">Background</p>
               </div>
-              <div className="flex-1 p-4 bg-background-elevated rounded border border-border-subtle">
-                <p className="text-xs text-foreground-muted">Elevated</p>
-              </div>
-              <div className="flex-1 p-4 bg-background-surface rounded border border-border-subtle">
+              <div className="flex-1 p-4 bg-surface rounded border border-border-subtle">
                 <p className="text-xs text-foreground-muted">Surface</p>
               </div>
-              <div className="flex-1 p-4 bg-background-overlay rounded border border-border-subtle">
+              <div className="flex-1 p-4 bg-surface-elevated rounded border border-border-subtle">
+                <p className="text-xs text-foreground-muted">Elevated</p>
+              </div>
+              <div className="flex-1 p-4 bg-surface-overlay rounded border border-border-subtle">
                 <p className="text-xs text-foreground-muted">Overlay</p>
               </div>
             </div>
           </div>
 
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">
               When to use shadows
             </h4>

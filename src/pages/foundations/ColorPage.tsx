@@ -80,10 +80,16 @@ const semanticText = [
   { name: "--text-brand", value: "#ea580c", primitiveToken: "orange-600", description: "Brand accent text, links, emphasis" },
 ];
 
+const semanticBackground = [
+  { name: "--background-default", value: "#0a0a0a", primitiveToken: "neutral-950", description: "Main page background, body" },
+  { name: "--background-subtle", value: "#121212", primitiveToken: "neutral-900", description: "Hero sections, footer, alternate sections" },
+  { name: "--background-muted", value: "#1a1a1a", primitiveToken: "neutral-800", description: "Emphasized sections, code blocks" },
+];
+
 const semanticSurface = [
-  { name: "--surface-default", value: "#0a0a0a", primitiveToken: "neutral-950", description: "Page background" },
-  { name: "--surface-elevated", value: "#121212", primitiveToken: "neutral-900", description: "Cards, panels" },
-  { name: "--surface-overlay", value: "#1a1a1a", primitiveToken: "neutral-800", description: "Modals, dropdowns" },
+  { name: "--surface-default", value: "#121212", primitiveToken: "neutral-900", description: "Sidebar, navigation, base components" },
+  { name: "--surface-elevated", value: "#1a1a1a", primitiveToken: "neutral-800", description: "Cards, panels, elevated components" },
+  { name: "--surface-overlay", value: "#262626", primitiveToken: "neutral-700", description: "Modals, dropdowns, tooltips" },
   { name: "--surface-brand", value: "#ea580c", primitiveToken: "orange-600", description: "Primary buttons, brand highlights" },
   { name: "--surface-brand-muted", value: "rgba(234, 88, 12, 0.15)", primitiveToken: "orange-600 @ 15%", description: "Brand accent backgrounds" },
 ];
@@ -242,8 +248,15 @@ const SemanticColors = () => (
     </Section>
 
     <Section
+      title="Background"
+      description="Background colors define page and section level backgrounds. Use these for the foundational canvas of your interface."
+    >
+      <TokenTable tokens={semanticBackground} showSwatch />
+    </Section>
+
+    <Section
       title="Surface"
-      description="Surface colors create depth and spatial hierarchy. Layered backgrounds help users understand UI structure."
+      description="Surface colors create depth and spatial hierarchy for components. Layered surfaces help users understand UI structure at the component level."
     >
       <TokenTable tokens={semanticSurface} showSwatch />
     </Section>
@@ -267,17 +280,17 @@ const SemanticColors = () => (
       <DosDonts
         dos={[
           "Use semantic tokens for all interface elements",
+          "Use background tokens for page/section level (body, sections, code blocks)",
+          "Use surface tokens for components (sidebar, cards, modals)",
           "Maintain consistent contrast ratios for accessibility",
           "Layer surfaces from dark to light to create depth",
-          "Use state colors consistently across all components",
-          "Combine muted backgrounds with colored borders for subtle emphasis",
         ]}
         donts={[
           "Use primitive colors directly in components",
+          "Use surface tokens for page backgrounds (use background tokens)",
+          "Use background tokens for components (use surface tokens)",
           "Mix semantic contexts (text color for backgrounds)",
-          "Add new colors without updating the token system",
           "Use color as the only indicator of state or meaning",
-          "Use full-saturation colors for large background areas",
         ]}
       />
     </Section>

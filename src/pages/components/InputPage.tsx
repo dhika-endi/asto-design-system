@@ -12,7 +12,7 @@ const InteractionTable = ({ states }: { states: Array<{ state: string; trigger: 
   <div className="overflow-hidden rounded-xl border border-border-glass">
     <table className="w-full text-sm">
       <thead>
-        <tr className="bg-background-surface border-b border-border-glass">
+        <tr className="bg-surface-elevated border-b border-border-glass">
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">State</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Trigger</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Visual Changes</th>
@@ -46,10 +46,10 @@ const VisualExample = ({
   const isDo = type === "do";
   return (
     <div className="space-y-0">
-      <div className="p-8 bg-background-surface rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
+      <div className="p-8 bg-surface-elevated rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
         {children}
       </div>
-      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-background-elevated rounded-b-lg border border-border-glass border-t-0`}>
+      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-surface-elevated rounded-b-lg border border-border-glass border-t-0`}>
         <div className="flex items-start gap-2">
           {isDo ? (
             <Check className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
@@ -120,7 +120,7 @@ const InputOverview = () => (
 
     <Section title="Types">
       <div className="grid md:grid-cols-3 gap-6">
-        <div className="p-6 bg-background-surface rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <h4 className="font-medium text-foreground mb-4">Text</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             General purpose text entry for names, titles, descriptions.
@@ -135,7 +135,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <h4 className="font-medium text-foreground mb-4">Email</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Validates email format, shows email keyboard on mobile.
@@ -150,7 +150,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <h4 className="font-medium text-foreground mb-4">Password</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Masks input by default, typically includes show/hide toggle.
@@ -173,7 +173,7 @@ const InputOverview = () => (
       </p>
       
       <div className="grid md:grid-cols-3 gap-6">
-        <div className="p-6 bg-background-surface rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <h4 className="font-medium text-foreground mb-4">Text Only</h4>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground">Username</label>
@@ -185,7 +185,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <h4 className="font-medium text-foreground mb-4">Left Icon + Text</h4>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground">Search</label>
@@ -200,7 +200,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <h4 className="font-medium text-foreground mb-4">Right Icon + Text</h4>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground">Password</label>
@@ -233,7 +233,7 @@ const InputOverview = () => (
       />
       
       <div className="grid md:grid-cols-3 gap-4 mt-6">
-        <div className="p-4 bg-background-surface rounded-lg border border-border">
+        <div className="p-4 bg-surface-elevated rounded-lg border border-border">
           <p className="text-xs text-foreground-muted mb-3">default</p>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground">Label</label>
@@ -245,7 +245,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-4 bg-background-surface rounded-lg border border-border">
+        <div className="p-4 bg-surface-elevated rounded-lg border border-border">
           <p className="text-xs text-foreground-muted mb-3">hover</p>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground">Label</label>
@@ -257,7 +257,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-4 bg-background-surface rounded-lg border border-border">
+        <div className="p-4 bg-surface-elevated rounded-lg border border-border">
           <p className="text-xs text-foreground-muted mb-3">focus</p>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground">Label</label>
@@ -269,7 +269,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-4 bg-background-surface rounded-lg border border-border">
+        <div className="p-4 bg-surface-elevated rounded-lg border border-border">
           <p className="text-xs text-foreground-muted mb-3">filled</p>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground">Label</label>
@@ -281,7 +281,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-4 bg-background-surface rounded-lg border border-border">
+        <div className="p-4 bg-surface-elevated rounded-lg border border-border">
           <p className="text-xs text-foreground-muted mb-3">error</p>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground">Label</label>
@@ -294,7 +294,7 @@ const InputOverview = () => (
           </div>
         </div>
 
-        <div className="p-4 bg-background-surface rounded-lg border border-border">
+        <div className="p-4 bg-surface-elevated rounded-lg border border-border">
           <p className="text-xs text-foreground-muted mb-3">disabled</p>
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground-disabled">Label</label>
@@ -349,7 +349,7 @@ const InputUsage = () => (
 
     <Section title="Helper text vs error text">
       <div className="space-y-6">
-        <div className="p-6 bg-background-surface rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <h4 className="font-medium text-foreground mb-4">Helper text</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Provides additional guidance before errors occur. Always visible.
@@ -364,7 +364,7 @@ const InputUsage = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <h4 className="font-medium text-foreground mb-4">Error text</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Replaces helper text when validation fails. Explains how to fix the error.
@@ -514,12 +514,12 @@ const InputUsage = () => (
         Input fields should be placed thoughtfully within forms to create clear visual hierarchy and logical flow.
       </p>
       <div className="space-y-6">
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Vertical form layout</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Stack inputs vertically with consistent spacing (16px). Labels above inputs for better scanning.
           </p>
-          <div className="p-4 border border-border rounded-lg bg-background-elevated max-w-sm">
+          <div className="p-4 border border-border rounded-lg bg-surface-elevated max-w-sm">
             <div className="space-y-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground">First name</label>
@@ -537,12 +537,12 @@ const InputUsage = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Inline layout</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Use inline layouts for related short inputs like date ranges or name fields.
           </p>
-          <div className="p-4 border border-border rounded-lg bg-background-elevated">
+          <div className="p-4 border border-border rounded-lg bg-surface-elevated">
             <div className="flex gap-4">
               <div className="space-y-2 flex-1">
                 <label className="text-sm font-medium text-foreground">Start date</label>
@@ -556,12 +556,12 @@ const InputUsage = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">With helper text</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Helper text appears below the input with reduced spacing (4px).
           </p>
-          <div className="p-4 border border-border rounded-lg bg-background-elevated max-w-sm">
+          <div className="p-4 border border-border rounded-lg bg-surface-elevated max-w-sm">
             <div className="space-y-1">
               <label className="text-sm font-medium text-foreground">Password</label>
               <div className="h-10 bg-input border border-border rounded-md"></div>
@@ -579,7 +579,7 @@ const InputUsage = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Use case</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Use Input</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Use Alternative</th>
@@ -666,7 +666,7 @@ const InputAccessibility = () => (
         Focus indicators must meet WCAG 2.2 requirements. The focus ring should have at least 2px width, 
         sufficient contrast (3:1 minimum) against the background, and not rely on color alone.
       </p>
-      <div className="p-6 bg-background-surface rounded-lg border border-border">
+      <div className="p-6 bg-surface-elevated rounded-lg border border-border">
         <div className="space-y-2 max-w-sm">
           <label className="block text-sm font-medium text-foreground">Focused Input</label>
           <input
@@ -714,7 +714,7 @@ const InputAccessibility = () => (
       <div className="overflow-hidden rounded-lg border border-border">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border">
+            <tr className="bg-surface-elevated border-b border-border">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">
                 Key
               </th>
@@ -1025,7 +1025,7 @@ const InputSpecifications = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Property</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Default value</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Description</th>
@@ -1061,7 +1061,7 @@ const InputSpecifications = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Part</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Element</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Required</th>
@@ -1102,7 +1102,7 @@ const InputSpecifications = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Property</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Value</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Notes</th>
@@ -1208,7 +1208,7 @@ const InputTokens = () => (
     </Section>
 
     <Section title="Contrast compliance">
-      <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+      <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
         <ul className="list-disc list-inside space-y-2 text-sm text-foreground-secondary">
           <li>Input text meets WCAG AA 4.5:1 contrast ratio against input background</li>
           <li>Placeholder text meets minimum 3:1 contrast for non-text elements</li>

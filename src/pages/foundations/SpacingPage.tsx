@@ -51,7 +51,7 @@ const SpacingPage = () => {
         description="All spacing values are multiples of 4px. This creates predictable, harmonious layouts."
       >
         <TokenTable tokens={spacingScale} />
-        <div className="mt-6 p-6 bg-background-elevated rounded-lg border border-border">
+        <div className="mt-6 p-6 bg-surface-elevated rounded-lg border border-border">
           <p className="text-sm text-foreground-muted mb-4">Visual scale</p>
           <div className="space-y-2">
             {spacingScale.filter(s => parseInt(s.value) > 0 && parseInt(s.value) <= 64).map((space) => (
@@ -77,7 +77,7 @@ const SpacingPage = () => {
         description="Internal padding and gaps within components."
       >
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">Input fields</h4>
             <div className="space-y-2 text-sm text-foreground-secondary">
               <p>Horizontal padding: 12px (--space-12)</p>
@@ -85,7 +85,7 @@ const SpacingPage = () => {
               <p>Label gap: 8px (--space-8)</p>
             </div>
           </div>
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">Buttons</h4>
             <div className="space-y-2 text-sm text-foreground-secondary">
               <p>Horizontal padding: 16px (--space-16)</p>
@@ -93,14 +93,14 @@ const SpacingPage = () => {
               <p>Icon gap: 8px (--space-8)</p>
             </div>
           </div>
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">Cards</h4>
             <div className="space-y-2 text-sm text-foreground-secondary">
               <p>Padding: 24px (--space-24)</p>
               <p>Content gap: 16px (--space-16)</p>
             </div>
           </div>
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">Form groups</h4>
             <div className="space-y-2 text-sm text-foreground-secondary">
               <p>Field gap: 24px (--space-24)</p>

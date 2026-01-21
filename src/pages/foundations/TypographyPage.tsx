@@ -52,13 +52,13 @@ const TypographyPage = () => {
       >
         <TokenTable tokens={fontFamilies} />
         <div className="mt-6 grid md:grid-cols-2 gap-6">
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <p className="text-2xl font-sans text-foreground mb-2">Inter</p>
             <p className="text-foreground-secondary">
               The quick brown fox jumps over the lazy dog. 0123456789
             </p>
           </div>
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <p className="text-2xl font-mono text-foreground mb-2">JetBrains Mono</p>
             <p className="font-mono text-foreground-secondary">
               const value = 42; // Code example
@@ -72,7 +72,7 @@ const TypographyPage = () => {
         description="A modular scale provides consistent sizing. Each step serves a specific hierarchy level."
       >
         <TokenTable tokens={typeScale} />
-        <div className="mt-6 space-y-4 p-6 bg-background-elevated rounded-lg border border-border">
+        <div className="mt-6 space-y-4 p-6 bg-surface-elevated rounded-lg border border-border">
           <p className="text-5xl font-semibold text-foreground">Hero heading</p>
           <p className="text-4xl font-semibold text-foreground">Page title (H1)</p>
           <p className="text-3xl font-semibold text-foreground">Major heading (H2)</p>

@@ -32,7 +32,7 @@ const RadiusPage = () => {
           {radiusTokens.map((token) => (
             <div
               key={token.name}
-              className="aspect-square bg-background-surface border border-border flex items-center justify-center"
+              className="aspect-square bg-surface-elevated border border-border flex items-center justify-center"
               style={{ borderRadius: token.value }}
             >
               <span className="text-xs font-mono text-foreground-muted">
@@ -48,7 +48,7 @@ const RadiusPage = () => {
         description="Match radius to component size and hierarchy."
       >
         <div className="space-y-6">
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">Small elements</h4>
             <p className="text-sm text-foreground-secondary mb-4">
               Buttons, inputs, badges use --radius-md (6px) for subtle softening
@@ -66,18 +66,18 @@ const RadiusPage = () => {
             </div>
           </div>
 
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">Medium elements</h4>
             <p className="text-sm text-foreground-secondary mb-4">
               Cards and panels use --radius-lg (8px) to create visual separation
               while maintaining a technical aesthetic.
             </p>
-            <div className="p-4 bg-background-surface border border-border rounded-lg">
+            <div className="p-4 bg-surface-elevated border border-border rounded-lg">
               <p className="text-sm text-foreground">Card content</p>
             </div>
           </div>
 
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <h4 className="font-medium text-foreground mb-4">Circular elements</h4>
             <p className="text-sm text-foreground-secondary mb-4">
               Avatars and pills use --radius-full for perfect circles or stadium shapes.
@@ -86,7 +86,7 @@ const RadiusPage = () => {
               <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-accent-foreground text-sm font-medium">
                 DA
               </div>
-              <span className="px-3 py-1 bg-background-surface border border-border rounded-full text-xs text-foreground-secondary">
+              <span className="px-3 py-1 bg-surface-elevated border border-border rounded-full text-xs text-foreground-secondary">
                 Status pill
               </span>
             </div>

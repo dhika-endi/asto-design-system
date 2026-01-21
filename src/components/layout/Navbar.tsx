@@ -151,7 +151,7 @@ const MobileNavSection = ({ item, onLinkClick, pathname }: MobileNavSectionProps
       className={`flex items-center gap-3 py-3 px-4 ml-2 rounded-lg transition-colors min-h-[48px] ${
         isActive
           ? "bg-primary/10 text-primary"
-          : "text-foreground-secondary hover:text-foreground hover:bg-background-elevated"
+          : "text-foreground-secondary hover:text-foreground hover:bg-surface-elevated"
       }`}
     >
       {Icon && <Icon className="w-5 h-5 shrink-0" />}
@@ -239,7 +239,7 @@ export const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2.5 sm:p-2 rounded-lg hover:bg-background-elevated transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="p-2.5 sm:p-2 rounded-lg hover:bg-surface-elevated transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
@@ -252,7 +252,7 @@ export const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="md:hidden p-2.5 rounded-lg hover:bg-background-elevated transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="md:hidden p-2.5 rounded-lg hover:bg-surface-elevated transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Open menu"
             >
               <Menu className="w-5 h-5 text-foreground" />
@@ -277,7 +277,7 @@ export const Navbar = () => {
 
         {/* Sidebar Panel */}
         <div
-          className={`absolute left-0 top-0 h-full w-[280px] max-w-[80vw] bg-background-surface border-r border-border-glass shadow-2xl transition-transform duration-300 ease-out overflow-hidden flex flex-col ${
+          className={`absolute left-0 top-0 h-full w-[280px] max-w-[80vw] bg-surface border-r border-border-glass shadow-2xl transition-transform duration-300 ease-out overflow-hidden flex flex-col ${
             mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           style={{ zIndex: 1000 }}
@@ -287,7 +287,7 @@ export const Navbar = () => {
             <span className="font-semibold text-foreground">Menu</span>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg hover:bg-background-elevated transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="p-2.5 rounded-lg hover:bg-surface-elevated transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Close menu"
             >
               <X className="w-5 h-5 text-foreground" />
@@ -304,7 +304,7 @@ export const Navbar = () => {
                 className={`flex items-center gap-3 py-3 px-4 rounded-lg transition-colors min-h-[48px] ${
                   isActive(link.path)
                     ? "bg-primary/10 text-primary border border-primary/20"
-                    : "text-foreground-secondary hover:text-foreground hover:bg-background-elevated"
+                    : "text-foreground-secondary hover:text-foreground hover:bg-surface-elevated"
                 }`}
               >
                 <link.icon className="w-5 h-5 shrink-0" />

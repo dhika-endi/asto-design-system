@@ -16,7 +16,7 @@ interface AnatomyBlockProps {
 export const AnatomyBlock = ({ items, children, minHeight = "200px" }: AnatomyBlockProps) => {
   return (
     <div className="space-y-6">
-      <div className="p-8 bg-background-surface rounded-lg border border-border-glass flex items-center justify-center overflow-hidden" style={{ minHeight }}>
+      <div className="p-8 bg-surface-elevated rounded-lg border border-border-glass flex items-center justify-center overflow-hidden" style={{ minHeight }}>
         {children}
       </div>
       <div className="space-y-2">

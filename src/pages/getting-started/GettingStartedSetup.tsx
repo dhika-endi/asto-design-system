@@ -15,7 +15,7 @@ const GettingStartedSetup = () => {
 
       <Section title="Design Token Access">
         <div className="space-y-6">
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Paintbrush className="w-5 h-5 text-primary" />
@@ -26,7 +26,7 @@ const GettingStartedSetup = () => {
               </div>
             </div>
             <p className="text-sm text-foreground-secondary mb-4">
-              All design tokens are available as CSS variables in the <code className="px-1.5 py-0.5 bg-background-surface rounded text-xs">index.css</code> file. These variables follow the HSL color format for maximum flexibility.
+              All design tokens are available as CSS variables in the <code className="px-1.5 py-0.5 bg-surface-elevated rounded text-xs">index.css</code> file. These variables follow the HSL color format for maximum flexibility.
             </p>
             <CodeBlock
               code={`:root {
@@ -40,7 +40,7 @@ const GettingStartedSetup = () => {
             />
           </div>
 
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <FileCode className="w-5 h-5 text-primary" />
@@ -74,7 +74,7 @@ const GettingStartedSetup = () => {
 
       <Section title="Code Integration">
         <div className="space-y-6">
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Terminal className="w-5 h-5 text-primary" />
@@ -98,7 +98,7 @@ npx tailwindcss init -p`}
               <div>
                 <h4 className="text-sm font-medium text-foreground mb-2">2. Configure Tailwind</h4>
                 <p className="text-sm text-foreground-muted mb-2">
-                  Extend your <code className="px-1.5 py-0.5 bg-background-surface rounded text-xs">tailwind.config.ts</code> with the design tokens:
+                  Extend your <code className="px-1.5 py-0.5 bg-surface-elevated rounded text-xs">tailwind.config.ts</code> with the design tokens:
                 </p>
                 <CodeBlock
                   code={`import type { Config } from "tailwindcss";
@@ -172,7 +172,7 @@ export default {
         <div className="grid md:grid-cols-2 gap-4">
           <Link
             to="/design-system/getting-started/learn"
-            className="group p-5 bg-background-elevated rounded-lg border border-border hover:border-primary/50 transition-all"
+            className="group p-5 bg-surface-elevated rounded-lg border border-border hover:border-primary/50 transition-all"
           >
             <div className="flex items-start justify-between mb-2">
               <h3 className="text-base font-medium text-foreground">Learn the Basics</h3>
@@ -184,7 +184,7 @@ export default {
           </Link>
           <Link
             to="/design-system/getting-started/status"
-            className="group p-5 bg-background-elevated rounded-lg border border-border hover:border-primary/50 transition-all"
+            className="group p-5 bg-surface-elevated rounded-lg border border-border hover:border-primary/50 transition-all"
           >
             <div className="flex items-start justify-between mb-2">
               <h3 className="text-base font-medium text-foreground">Component Status</h3>

@@ -8,8 +8,17 @@
 
 @layer base {
   :root {
-    /* Background layers - darkest to lighter */
-    --background: 0 0% 4%;
+    /* ===== BACKGROUND COLORS (Page/Section Level) ===== */
+    --background: 0 0% 4%;           /* #0a0a0a - Main page background */
+    --background-subtle: 0 0% 7%;    /* #121212 - Hero sections, footer, alternate sections */
+    --background-muted: 0 0% 10%;    /* #1a1a1a - Emphasized sections, code blocks */
+
+    /* ===== SURFACE COLORS (Component Level) ===== */
+    --surface: 0 0% 7%;              /* #121212 - Sidebar, navigation, base components */
+    --surface-elevated: 0 0% 10%;    /* #1a1a1a - Cards, panels, elevated components */
+    --surface-overlay: 0 0% 15%;     /* #262626 - Modals, dropdowns, tooltips */
+
+    /* Legacy aliases (for backwards compatibility - prefer new tokens) */
     --background-elevated: 0 0% 7%;
     --background-surface: 0 0% 10%;
     --background-overlay: 0 0% 14%;
@@ -154,8 +163,17 @@
   }
 
   .light {
-    /* Background layers - lightest to darker */
-    --background: 0 0% 98%;
+    /* ===== BACKGROUND COLORS (Page/Section Level) ===== */
+    --background: 0 0% 98%;          /* Main page background */
+    --background-subtle: 0 0% 96%;   /* Hero sections, footer, alternate sections */
+    --background-muted: 0 0% 94%;    /* Emphasized sections, code blocks */
+
+    /* ===== SURFACE COLORS (Component Level) ===== */
+    --surface: 0 0% 100%;            /* Sidebar, navigation, base components */
+    --surface-elevated: 0 0% 98%;    /* Cards, panels, elevated components */
+    --surface-overlay: 0 0% 96%;     /* Modals, dropdowns, tooltips */
+
+    /* Legacy aliases (for backwards compatibility) */
     --background-elevated: 0 0% 100%;
     --background-surface: 0 0% 96%;
     --background-overlay: 0 0% 92%;
@@ -371,7 +389,7 @@
   }
 
   .code-header {
-    @apply px-4 py-2 bg-background-surface border-b border-border text-xs text-foreground-muted uppercase tracking-wider;
+    @apply px-4 py-2 bg-surface-elevated border-b border-border text-xs text-foreground-muted uppercase tracking-wider;
   }
 
   /* Navigation links with touch-friendly targets */
@@ -447,14 +465,14 @@
   }
 
   .glass-card-elevated {
-    @apply bg-background-elevated/70 backdrop-blur-xl border border-border-glass rounded-xl;
+    @apply bg-surface-elevated/70 backdrop-blur-xl border border-border-glass rounded-xl;
     box-shadow: 
       0 0 0 1px hsla(0, 0%, 100%, 0.08) inset,
       0 8px 32px -8px hsla(0, 0%, 0%, 0.6);
   }
 
   .light .glass-card-elevated {
-    @apply bg-background-elevated/90 border-border;
+    @apply bg-surface-elevated/90 border-border;
     box-shadow: 
       0 0 0 1px hsla(0, 0%, 0%, 0.03) inset,
       0 8px 32px -8px hsla(0, 0%, 0%, 0.1);
@@ -533,38 +551,41 @@
   .text-foreground-secondary {
     color: hsl(var(--foreground-secondary));
   }
-  
+
   .text-foreground-muted {
     color: hsl(var(--foreground-muted));
   }
-  
+
   .text-foreground-disabled {
     color: hsl(var(--foreground-disabled));
   }
-  
-  .bg-background-elevated {
-    background-color: hsl(var(--background-elevated) / 0.7);
+
+  /* ===== BACKGROUND UTILITIES (Page/Section Level) ===== */
+  .bg-background-subtle {
+    background-color: hsl(var(--background-subtle));
+  }
+
+  .bg-background-muted {
+    background-color: hsl(var(--background-muted));
+  }
+
+  /* ===== SURFACE UTILITIES (Component Level) ===== */
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+
+  .bg-surface-elevated {
+    background-color: hsl(var(--surface-elevated) / 0.7);
     backdrop-filter: blur(12px);
   }
 
-  .light .bg-background-elevated {
-    background-color: hsl(var(--background-elevated));
+  .light .bg-surface-elevated {
+    background-color: hsl(var(--surface-elevated));
     backdrop-filter: blur(8px);
-    border-color: hsl(var(--border));
-  }
-  
-  .bg-background-surface {
-    background-color: hsl(var(--background-surface) / 0.5);
-    backdrop-filter: blur(12px);
   }
 
-  .light .bg-background-surface {
-    background-color: hsl(var(--background-surface));
-    backdrop-filter: none;
-  }
-  
-  .bg-background-overlay {
-    background-color: hsl(var(--background-overlay));
+  .bg-surface-overlay {
+    background-color: hsl(var(--surface-overlay));
   }
   
   .border-border-subtle {

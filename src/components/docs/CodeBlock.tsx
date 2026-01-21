@@ -22,7 +22,7 @@ export const CodeBlock = ({ code, language, title }: CodeBlockProps) => {
         <span>{title || language}</span>
         <button
           onClick={handleCopy}
-          className="p-1 hover:bg-background-overlay rounded transition-colors"
+          className="p-1 hover:bg-surface-overlay rounded transition-colors"
         >
           {copied ? (
             <Check className="w-4 h-4 text-success" />

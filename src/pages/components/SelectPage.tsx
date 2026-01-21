@@ -19,7 +19,7 @@ const InteractionTable = ({ states }: { states: Array<{ state: string; trigger: 
   <div className="overflow-hidden rounded-xl border border-border-glass">
     <table className="w-full text-sm">
       <thead>
-        <tr className="bg-background-surface border-b border-border-glass">
+        <tr className="bg-surface-elevated border-b border-border-glass">
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">State</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Trigger</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Visual Changes</th>
@@ -52,10 +52,10 @@ const VisualExample = ({
   const isDo = type === "do";
   return (
     <div className="space-y-0">
-      <div className="p-8 bg-background-surface rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
+      <div className="p-8 bg-surface-elevated rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
         {children}
       </div>
-      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-background-elevated rounded-b-lg border border-border-glass border-t-0`}>
+      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-surface-elevated rounded-b-lg border border-border-glass border-t-0`}>
         <div className="flex items-start gap-2">
           {isDo ? (
             <Check className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
@@ -118,7 +118,7 @@ const SelectOverview = () => (
 
     <Section title="Types">
       <div className="space-y-6">
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Basic select</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Standard dropdown with single selection.
@@ -135,7 +135,7 @@ const SelectOverview = () => (
           </Select>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">With label</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Select with associated label for form contexts.
@@ -156,7 +156,7 @@ const SelectOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Disabled</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Select in disabled state.
@@ -230,7 +230,7 @@ const SelectSpecifications = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Property</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Default</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Description</th>
@@ -250,7 +250,7 @@ const SelectSpecifications = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Element</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Value</th>
             </tr>
@@ -277,7 +277,7 @@ const SelectInteractions = () => (
           { label: "Focus", disabled: false, placeholder: "Select option", focus: true },
           { label: "Disabled", disabled: true, placeholder: "Disabled" },
         ].map((state) => (
-          <div key={state.label} className="p-4 bg-background-surface rounded-lg border border-border-glass text-center">
+          <div key={state.label} className="p-4 bg-surface-elevated rounded-lg border border-border-glass text-center">
             <p className="text-xs text-foreground-muted mb-3">{state.label}</p>
             <Select disabled={state.disabled} value={state.value}>
               <SelectTrigger className={`w-full ${state.focus ? 'ring-2 ring-ring ring-offset-2 ring-offset-background' : ''}`}>
@@ -313,7 +313,7 @@ const SelectAccessibility = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Key</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Action</th>
             </tr>
@@ -332,11 +332,11 @@ const SelectAccessibility = () => (
 
     <Section title="ARIA attributes">
       <ul className="list-disc list-inside space-y-2 text-foreground-secondary">
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">role="combobox"</code> - Trigger role</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-expanded</code> - Dropdown open state</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-haspopup="listbox"</code> - Indicates popup type</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">role="listbox"</code> - Dropdown role</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">role="option"</code> - Individual option role</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">role="combobox"</code> - Trigger role</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-expanded</code> - Dropdown open state</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-haspopup="listbox"</code> - Indicates popup type</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">role="listbox"</code> - Dropdown role</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">role="option"</code> - Individual option role</li>
       </ul>
     </Section>
   </div>
@@ -447,7 +447,7 @@ const SelectTokens = () => (
     </Section>
 
     <Section title="Contrast compliance">
-      <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+      <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
         <ul className="list-disc list-inside space-y-2 text-sm text-foreground-secondary">
           <li>Selected option text meets WCAG AA 4.5:1 contrast ratio</li>
           <li>Focus ring provides minimum 3:1 contrast against adjacent colors</li>

@@ -13,7 +13,7 @@ const InteractionTable = ({ states }: { states: Array<{ state: string; trigger: 
   <div className="overflow-hidden rounded-xl border border-border-glass">
     <table className="w-full text-sm">
       <thead>
-        <tr className="bg-background-surface border-b border-border-glass">
+        <tr className="bg-surface-elevated border-b border-border-glass">
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">State</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Trigger</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Visual Changes</th>
@@ -46,10 +46,10 @@ const VisualExample = ({
   const isDo = type === "do";
   return (
     <div className="space-y-0">
-      <div className="p-8 bg-background-surface rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
+      <div className="p-8 bg-surface-elevated rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
         {children}
       </div>
-      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-background-elevated rounded-b-lg border border-border-glass border-t-0`}>
+      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-surface-elevated rounded-b-lg border border-border-glass border-t-0`}>
         <div className="flex items-start gap-2">
           {isDo ? (
             <Check className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
@@ -110,7 +110,7 @@ const TextareaOverview = () => (
 
     <Section title="Types">
       <div className="space-y-6">
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Basic textarea</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Standard multi-line text input.
@@ -121,7 +121,7 @@ const TextareaOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">With character count</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Shows remaining characters when there's a limit.
@@ -133,7 +133,7 @@ const TextareaOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Fixed size</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Non-resizable textarea with fixed dimensions.
@@ -144,7 +144,7 @@ const TextareaOverview = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Disabled</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Textarea in disabled state.
@@ -217,7 +217,7 @@ const TextareaSpecifications = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Property</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Default</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Description</th>
@@ -238,7 +238,7 @@ const TextareaSpecifications = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Element</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Value</th>
             </tr>
@@ -265,7 +265,7 @@ const TextareaInteractions = () => (
           { label: "Filled", props: { defaultValue: "Some content here..." } },
           { label: "Disabled", props: { disabled: true, placeholder: "Disabled" } },
         ].map((state) => (
-          <div key={state.label} className="p-4 bg-background-surface rounded-lg border border-border-glass">
+          <div key={state.label} className="p-4 bg-surface-elevated rounded-lg border border-border-glass">
             <p className="text-xs text-foreground-muted mb-3 text-center">{state.label}</p>
             <Textarea placeholder="Placeholder..." className={`h-16 ${state.props.className || ''}`} {...state.props} />
           </div>
@@ -294,7 +294,7 @@ const TextareaAccessibility = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Key</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Action</th>
             </tr>
@@ -311,10 +311,10 @@ const TextareaAccessibility = () => (
 
     <Section title="ARIA attributes">
       <ul className="list-disc list-inside space-y-2 text-foreground-secondary">
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-labelledby</code> - References the label element</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-describedby</code> - References helper text or error</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-invalid</code> - Indicates validation error</li>
-        <li><code className="text-sm bg-background-surface px-1.5 py-0.5 rounded">aria-required</code> - Indicates required field</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-labelledby</code> - References the label element</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-describedby</code> - References helper text or error</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-invalid</code> - Indicates validation error</li>
+        <li><code className="text-sm bg-surface-elevated px-1.5 py-0.5 rounded">aria-required</code> - Indicates required field</li>
       </ul>
     </Section>
 
@@ -433,7 +433,7 @@ const TextareaTokens = () => (
     </Section>
 
     <Section title="Contrast compliance">
-      <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+      <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
         <ul className="list-disc list-inside space-y-2 text-sm text-foreground-secondary">
           <li>Textarea text meets WCAG AA 4.5:1 contrast ratio against background</li>
           <li>Placeholder text meets minimum 3:1 contrast for non-text elements</li>

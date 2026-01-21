@@ -57,7 +57,7 @@ export const TokenTableWithPreview = ({ tokens }: TokenTableWithPreviewProps) =>
     <div className="overflow-hidden rounded-xl border border-border-glass">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-background-surface border-b border-border-glass">
+          <tr className="bg-surface-elevated border-b border-border-glass">
             <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted w-16">Preview</th>
             <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Token</th>
             <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">State</th>

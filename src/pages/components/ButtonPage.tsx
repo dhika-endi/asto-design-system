@@ -13,7 +13,7 @@ const InteractionTable = ({ states }: { states: Array<{ state: string; trigger: 
   <div className="overflow-hidden rounded-xl border border-border-glass">
     <table className="w-full text-sm">
       <thead>
-        <tr className="bg-background-surface border-b border-border-glass">
+        <tr className="bg-surface-elevated border-b border-border-glass">
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">State</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Trigger</th>
           <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Visual Changes</th>
@@ -47,10 +47,10 @@ const VisualExample = ({
   const isDo = type === "do";
   return (
     <div className="space-y-0">
-      <div className="p-8 bg-background-surface rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
+      <div className="p-8 bg-surface-elevated rounded-t-lg flex items-center justify-center min-h-[120px] border border-border-glass border-b-0">
         {children}
       </div>
-      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-background-elevated rounded-b-lg border border-border-glass border-t-0`}>
+      <div className={`p-3 border-t-4 ${isDo ? "border-success" : "border-error"} bg-surface-elevated rounded-b-lg border border-border-glass border-t-0`}>
         <div className="flex items-start gap-2">
           {isDo ? (
             <Check className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
@@ -104,7 +104,7 @@ const ButtonOverview = () => (
 
     <Section title="Types">
       <div className="space-y-6">
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Primary</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             High emphasis. Use for the main action on a page or in a form.
@@ -112,7 +112,7 @@ const ButtonOverview = () => (
           <Button>Primary Button</Button>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Secondary</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Medium emphasis. Use for secondary actions or when paired with a primary button.
@@ -120,7 +120,7 @@ const ButtonOverview = () => (
           <Button variant="secondary">Secondary Button</Button>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Tertiary</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Low emphasis. Use for tertiary actions or when visual weight needs to be minimal.
@@ -128,7 +128,7 @@ const ButtonOverview = () => (
           <Button variant="tertiary">Tertiary Button</Button>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Danger</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Destructive actions only. Ghost-like style with red text and icon. No background fill to reduce visual aggression while maintaining clarity.
@@ -148,7 +148,7 @@ const ButtonOverview = () => (
       
       <div className="space-y-6">
         {/* Primary sub-types */}
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Primary Sub-types</h4>
           <div className="flex flex-wrap items-center gap-4">
             <div className="text-center">
@@ -167,7 +167,7 @@ const ButtonOverview = () => (
         </div>
 
         {/* Secondary sub-types */}
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Secondary Sub-types</h4>
           <div className="flex flex-wrap items-center gap-4">
             <div className="text-center">
@@ -186,7 +186,7 @@ const ButtonOverview = () => (
         </div>
 
         {/* Tertiary sub-types */}
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Tertiary Sub-types</h4>
           <div className="flex flex-wrap items-center gap-4">
             <div className="text-center">
@@ -205,7 +205,7 @@ const ButtonOverview = () => (
         </div>
 
         {/* Danger sub-types */}
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Danger Sub-types</h4>
           <div className="flex flex-wrap items-center gap-4">
             <div className="text-center">
@@ -226,7 +226,7 @@ const ButtonOverview = () => (
     </Section>
 
     <Section title="Sizes">
-      <div className="flex items-end gap-4 p-6 bg-background-surface rounded-xl border border-border-glass">
+      <div className="flex items-end gap-4 p-6 bg-surface-elevated rounded-xl border border-border-glass">
         <div className="text-center">
           <Button size="sm">Small</Button>
           <p className="text-xs text-foreground-muted mt-2">36px height</p>
@@ -258,27 +258,27 @@ const ButtonOverview = () => (
       />
       
       <div className="grid md:grid-cols-3 gap-4 mt-6">
-        <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
           <p className="text-xs text-foreground-muted mb-2">default (interactive)</p>
           <Button>Button</Button>
         </div>
-        <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
           <p className="text-xs text-foreground-muted mb-2">hover (try it)</p>
           <Button>Hover Me</Button>
         </div>
-        <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
           <p className="text-xs text-foreground-muted mb-2">focus (tab to it)</p>
           <Button>Focus Me</Button>
         </div>
-        <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
           <p className="text-xs text-foreground-muted mb-2">active (click & hold)</p>
           <Button>Click Me</Button>
         </div>
-        <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
           <p className="text-xs text-foreground-muted mb-2">disabled</p>
           <Button disabled>Button</Button>
         </div>
-        <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
           <p className="text-xs text-foreground-muted mb-2">loading</p>
           <Button disabled>
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -427,12 +427,12 @@ const ButtonUsage = () => (
         Buttons should be placed thoughtfully within layouts to guide user attention and action flow.
       </p>
       <div className="space-y-6">
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Form actions</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Primary action on the right, secondary on the left. Use consistent spacing (16px gap).
           </p>
-          <div className="p-4 border border-border rounded-lg bg-background-elevated">
+          <div className="p-4 border border-border rounded-lg bg-surface-elevated">
             <div className="space-y-4 max-w-sm">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground">Email</label>
@@ -446,12 +446,12 @@ const ButtonUsage = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Dialog actions</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Right-align buttons in dialogs. Destructive actions should use the danger variant.
           </p>
-          <div className="p-4 border border-border rounded-lg bg-background-elevated max-w-md">
+          <div className="p-4 border border-border rounded-lg bg-surface-elevated max-w-md">
             <h5 className="font-medium text-foreground mb-2">Delete item?</h5>
             <p className="text-sm text-foreground-secondary mb-4">This action cannot be undone.</p>
             <div className="flex justify-end gap-3">
@@ -461,12 +461,12 @@ const ButtonUsage = () => (
           </div>
         </div>
 
-        <div className="p-6 bg-background-surface rounded-xl border border-border-glass">
+        <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass">
           <h4 className="font-medium text-foreground mb-4">Card actions</h4>
           <p className="text-sm text-foreground-secondary mb-4">
             Place actions at the bottom of cards with adequate spacing from content.
           </p>
-          <div className="p-4 border border-border rounded-lg bg-background-elevated max-w-xs">
+          <div className="p-4 border border-border rounded-lg bg-surface-elevated max-w-xs">
             <div className="h-24 bg-muted rounded-md mb-4"></div>
             <h5 className="font-medium text-foreground">Card title</h5>
             <p className="text-sm text-foreground-secondary mt-1 mb-4">Brief description of the content.</p>
@@ -483,7 +483,7 @@ const ButtonUsage = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Use case</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Use Button</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Use Alternative</th>
@@ -541,7 +541,7 @@ const ButtonAccessibility = () => (
       <div className="overflow-hidden rounded-xl border border-border-glass">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">
                 Key
               </th>
@@ -585,7 +585,7 @@ const ButtonAccessibility = () => (
         Focus indicators must meet WCAG 2.2 requirements. The focus ring should have at least 2px width, 
         sufficient contrast (3:1 minimum) against the background, and not rely on color alone.
       </p>
-      <div className="p-6 bg-background-surface rounded-xl border border-border-glass space-y-4">
+      <div className="p-6 bg-surface-elevated rounded-xl border border-border-glass space-y-4">
         <div className="flex gap-4">
           <div className="text-center">
             <Button>Primary Focus</Button>
@@ -873,7 +873,7 @@ const ButtonSpecifications = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Property</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Default value</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Description</th>
@@ -914,7 +914,7 @@ const ButtonSpecifications = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Part</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Element</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Required</th>
@@ -950,7 +950,7 @@ const ButtonSpecifications = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-background-surface border-b border-border-glass">
+            <tr className="bg-surface-elevated border-b border-border-glass">
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Size</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Height</th>
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted">Padding X</th>
@@ -1067,7 +1067,7 @@ const ButtonTokens = () => (
     </Section>
 
     <Section title="Contrast compliance">
-      <div className="p-4 bg-background-surface rounded-xl border border-border-glass">
+      <div className="p-4 bg-surface-elevated rounded-xl border border-border-glass">
         <ul className="list-disc list-inside space-y-2 text-sm text-foreground-secondary">
           <li>Primary button text meets WCAG AA 4.5:1 contrast ratio against primary background</li>
           <li>Focus ring color provides minimum 3:1 contrast against adjacent colors</li>

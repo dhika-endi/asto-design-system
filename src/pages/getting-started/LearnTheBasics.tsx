@@ -65,7 +65,7 @@ const LearnTheBasics = () => {
 
       {concepts.map((concept) => (
         <Section key={concept.title} title={concept.title}>
-          <div className="p-6 bg-background-elevated rounded-lg border border-border">
+          <div className="p-6 bg-surface-elevated rounded-lg border border-border">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <concept.icon className="w-5 h-5 text-primary" />
@@ -79,7 +79,7 @@ const LearnTheBasics = () => {
             {concept.examples && (
               <div className="space-y-2 mb-4">
                 {concept.examples.map((example) => (
-                  <div key={example.label} className="flex items-center gap-4 p-3 bg-background-surface rounded-lg">
+                  <div key={example.label} className="flex items-center gap-4 p-3 bg-surface-elevated rounded-lg">
                     <span className="text-sm font-medium text-foreground w-24">{example.label}</span>
                     <code className="text-xs text-foreground-muted font-mono">{example.value}</code>
                   </div>
@@ -90,7 +90,7 @@ const LearnTheBasics = () => {
             {concept.parts && (
               <div className="grid sm:grid-cols-2 gap-3 mb-4">
                 {concept.parts.map((part) => (
-                  <div key={part.label} className="p-3 bg-background-surface rounded-lg">
+                  <div key={part.label} className="p-3 bg-surface-elevated rounded-lg">
                     <span className="text-sm font-medium text-foreground">{part.label}</span>
                     <p className="text-xs text-foreground-muted mt-1">{part.description}</p>
                   </div>
@@ -123,7 +123,7 @@ const LearnTheBasics = () => {
       ))}
 
       <Section title="Theming">
-        <div className="p-6 bg-background-elevated rounded-lg border border-border">
+        <div className="p-6 bg-surface-elevated rounded-lg border border-border">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <Palette className="w-5 h-5 text-primary" />
@@ -135,7 +135,7 @@ const LearnTheBasics = () => {
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4 mb-4">
-            <div className="p-4 bg-background-surface rounded-lg">
+            <div className="p-4 bg-surface-elevated rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <Moon className="w-4 h-4 text-foreground-muted" />
                 <span className="text-sm font-medium text-foreground">Dark Theme (Default)</span>
@@ -144,7 +144,7 @@ const LearnTheBasics = () => {
                 Optimized for low-light environments with high contrast and reduced eye strain.
               </p>
             </div>
-            <div className="p-4 bg-background-surface rounded-lg">
+            <div className="p-4 bg-surface-elevated rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <Sun className="w-4 h-4 text-foreground-muted" />
                 <span className="text-sm font-medium text-foreground">Light Theme</span>
@@ -169,7 +169,7 @@ const LearnTheBasics = () => {
         <div className="grid md:grid-cols-2 gap-4">
           <Link
             to="/design-system/getting-started/status"
-            className="group p-5 bg-background-elevated rounded-lg border border-border hover:border-primary/50 transition-all"
+            className="group p-5 bg-surface-elevated rounded-lg border border-border hover:border-primary/50 transition-all"
           >
             <div className="flex items-start justify-between mb-2">
               <h3 className="text-base font-medium text-foreground">Component Status</h3>
@@ -181,7 +181,7 @@ const LearnTheBasics = () => {
           </Link>
           <Link
             to="/design-system/foundations/color"
-            className="group p-5 bg-background-elevated rounded-lg border border-border hover:border-primary/50 transition-all"
+            className="group p-5 bg-surface-elevated rounded-lg border border-border hover:border-primary/50 transition-all"
           >
             <div className="flex items-start justify-between mb-2">
               <h3 className="text-base font-medium text-foreground">Start with Foundations</h3>

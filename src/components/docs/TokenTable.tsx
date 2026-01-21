@@ -17,7 +17,7 @@ export const TokenTable = ({ tokens, showSwatch = false }: TokenTableProps) => {
     <div className="overflow-hidden rounded-lg border border-border">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-background-surface border-b border-border">
+          <tr className="bg-surface-elevated border-b border-border">
             {showSwatch && (
               <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-foreground-muted w-16">
                 Preview
@@ -38,7 +38,7 @@ export const TokenTable = ({ tokens, showSwatch = false }: TokenTableProps) => {
         </thead>
         <tbody className="divide-y divide-border-subtle">
           {tokens.map((token) => (
-            <tr key={token.name} className="hover:bg-background-elevated transition-colors">
+            <tr key={token.name} className="hover:bg-surface-elevated transition-colors">
               {showSwatch && (
                 <td className="px-4 py-3">
                   <div

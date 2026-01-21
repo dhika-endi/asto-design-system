@@ -26,6 +26,13 @@ export default {
         "input-focus": "hsl(var(--input-focus))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        "background-subtle": "hsl(var(--background-subtle))",
+        "background-muted": "hsl(var(--background-muted))",
+        // Surface colors (component level)
+        surface: "hsl(var(--surface))",
+        "surface-elevated": "hsl(var(--surface-elevated))",
+        "surface-overlay": "hsl(var(--surface-overlay))",
+        // Legacy aliases (for backwards compatibility)
         "background-elevated": "hsl(var(--background-elevated))",
         "background-surface": "hsl(var(--background-surface))",
         "background-overlay": "hsl(var(--background-overlay))",
