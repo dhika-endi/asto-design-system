@@ -72,42 +72,42 @@ const primitiveGreen = [
 ];
 
 const semanticText = [
-  { name: "--text-primary", value: "#fafafa", description: "Main body text, headings" },
-  { name: "--text-secondary", value: "#a6a6a6", description: "Supporting text, descriptions" },
-  { name: "--text-muted", value: "#737373", description: "Placeholders, captions" },
-  { name: "--text-disabled", value: "#4d4d4d", description: "Disabled states only" },
-  { name: "--text-inverse", value: "#0a0a0a", description: "Text on light backgrounds" },
-  { name: "--text-brand", value: "#ea580c", description: "Brand accent text, links, emphasis" },
+  { name: "--text-primary", value: "#fafafa", primitiveToken: "neutral-50", description: "Main body text, headings" },
+  { name: "--text-secondary", value: "#a6a6a6", primitiveToken: "neutral-300", description: "Supporting text, descriptions" },
+  { name: "--text-muted", value: "#737373", primitiveToken: "neutral-400", description: "Placeholders, captions" },
+  { name: "--text-disabled", value: "#4d4d4d", primitiveToken: "neutral-500", description: "Disabled states only" },
+  { name: "--text-inverse", value: "#0a0a0a", primitiveToken: "neutral-950", description: "Text on light backgrounds" },
+  { name: "--text-brand", value: "#ea580c", primitiveToken: "orange-600", description: "Brand accent text, links, emphasis" },
 ];
 
 const semanticSurface = [
-  { name: "--surface-default", value: "#0a0a0a", description: "Page background" },
-  { name: "--surface-elevated", value: "#121212", description: "Cards, panels" },
-  { name: "--surface-overlay", value: "#1a1a1a", description: "Modals, dropdowns" },
-  { name: "--surface-brand", value: "#ea580c", description: "Primary buttons, brand highlights" },
-  { name: "--surface-brand-muted", value: "rgba(234, 88, 12, 0.15)", description: "Brand accent backgrounds" },
+  { name: "--surface-default", value: "#0a0a0a", primitiveToken: "neutral-950", description: "Page background" },
+  { name: "--surface-elevated", value: "#121212", primitiveToken: "neutral-900", description: "Cards, panels" },
+  { name: "--surface-overlay", value: "#1a1a1a", primitiveToken: "neutral-800", description: "Modals, dropdowns" },
+  { name: "--surface-brand", value: "#ea580c", primitiveToken: "orange-600", description: "Primary buttons, brand highlights" },
+  { name: "--surface-brand-muted", value: "rgba(234, 88, 12, 0.15)", primitiveToken: "orange-600 @ 15%", description: "Brand accent backgrounds" },
 ];
 
 const semanticStroke = [
-  { name: "--stroke-default", value: "#292929", description: "Component borders" },
-  { name: "--stroke-subtle", value: "#1f1f1f", description: "Dividers, separators" },
-  { name: "--stroke-strong", value: "#404040", description: "Focus rings, emphasis" },
-  { name: "--stroke-brand", value: "#ea580c", description: "Active states, brand borders" },
+  { name: "--stroke-default", value: "#292929", primitiveToken: "neutral-700", description: "Component borders" },
+  { name: "--stroke-subtle", value: "#1f1f1f", primitiveToken: "custom", description: "Dividers, separators" },
+  { name: "--stroke-strong", value: "#404040", primitiveToken: "neutral-600", description: "Focus rings, emphasis" },
+  { name: "--stroke-brand", value: "#ea580c", primitiveToken: "orange-600", description: "Active states, brand borders" },
 ];
 
 const semanticStates = [
-  { name: "--success", value: "#22c55e", description: "Positive actions, confirmations" },
-  { name: "--success-muted", value: "rgba(34, 197, 94, 0.15)", description: "Success backgrounds" },
-  { name: "--success-border", value: "rgba(34, 197, 94, 0.3)", description: "Success borders" },
-  { name: "--warning", value: "#eab308", description: "Caution, attention needed" },
-  { name: "--warning-muted", value: "rgba(234, 179, 8, 0.15)", description: "Warning backgrounds" },
-  { name: "--warning-border", value: "rgba(234, 179, 8, 0.3)", description: "Warning borders" },
-  { name: "--error", value: "#ef4444", description: "Errors, destructive actions" },
-  { name: "--error-muted", value: "rgba(239, 68, 68, 0.15)", description: "Error backgrounds" },
-  { name: "--error-border", value: "rgba(239, 68, 68, 0.3)", description: "Error borders" },
-  { name: "--info", value: "#3b82f6", description: "Informational messages" },
-  { name: "--info-muted", value: "rgba(59, 130, 246, 0.15)", description: "Info backgrounds" },
-  { name: "--info-border", value: "rgba(59, 130, 246, 0.3)", description: "Info borders" },
+  { name: "--success", value: "#22c55e", primitiveToken: "green-500", description: "Positive actions, confirmations" },
+  { name: "--success-muted", value: "rgba(34, 197, 94, 0.15)", primitiveToken: "green-500 @ 15%", description: "Success backgrounds" },
+  { name: "--success-border", value: "rgba(34, 197, 94, 0.3)", primitiveToken: "green-500 @ 30%", description: "Success borders" },
+  { name: "--warning", value: "#eab308", primitiveToken: "yellow-500", description: "Caution, attention needed" },
+  { name: "--warning-muted", value: "rgba(234, 179, 8, 0.15)", primitiveToken: "yellow-500 @ 15%", description: "Warning backgrounds" },
+  { name: "--warning-border", value: "rgba(234, 179, 8, 0.3)", primitiveToken: "yellow-500 @ 30%", description: "Warning borders" },
+  { name: "--error", value: "#ef4444", primitiveToken: "red-500", description: "Errors, destructive actions" },
+  { name: "--error-muted", value: "rgba(239, 68, 68, 0.15)", primitiveToken: "red-500 @ 15%", description: "Error backgrounds" },
+  { name: "--error-border", value: "rgba(239, 68, 68, 0.3)", primitiveToken: "red-500 @ 30%", description: "Error borders" },
+  { name: "--info", value: "#3b82f6", primitiveToken: "blue-500", description: "Informational messages" },
+  { name: "--info-muted", value: "rgba(59, 130, 246, 0.15)", primitiveToken: "blue-500 @ 15%", description: "Info backgrounds" },
+  { name: "--info-border", value: "rgba(59, 130, 246, 0.3)", primitiveToken: "blue-500 @ 30%", description: "Info borders" },
 ];
 
 const StatePreview = () => (

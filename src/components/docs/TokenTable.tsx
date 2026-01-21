@@ -1,6 +1,7 @@
 interface Token {
   name: string;
   value: string;
+  primitiveToken?: string;
   description?: string;
 }
 
@@ -10,6 +11,8 @@ interface TokenTableProps {
 }
 
 export const TokenTable = ({ tokens, showSwatch = false }: TokenTableProps) => {
+  const hasPrimitiveTokens = tokens.some((t) => t.primitiveToken);
+
   return (
     <div className="overflow-hidden rounded-lg border border-border">
       <table className="w-full text-sm">
@@ -45,7 +48,14 @@ export const TokenTable = ({ tokens, showSwatch = false }: TokenTableProps) => {
                 </td>
               )}
               <td className="px-4 py-3 font-mono text-foreground">{token.name}</td>
-              <td className="px-4 py-3 font-mono text-foreground-secondary">{token.value}</td>
+              <td className="px-4 py-3 font-mono">
+                <span className="text-foreground-secondary">{token.value}</span>
+                {hasPrimitiveTokens && token.primitiveToken && (
+                  <span className="text-foreground-muted text-[0.9em] ml-2">
+                    ({token.primitiveToken})
+                  </span>
+                )}
+              </td>
               {tokens.some((t) => t.description) && (
                 <td className="px-4 py-3 text-foreground-secondary">{token.description}</td>
               )}

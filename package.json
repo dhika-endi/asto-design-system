@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "export-colors": "node src/lib/export-colors.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
