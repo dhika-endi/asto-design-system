@@ -108,6 +108,101 @@ body {
 <div class="bg-surface-overlay">Overlay component</div>
 ```
 
+### Component Colors
+
+Component tokens provide a dedicated layer for UI components, referencing semantic tokens for flexibility.
+
+#### Token Hierarchy
+
+```
+Primitive Tokens (Foundation)
+       ↓ references
+Semantic Tokens (Context)
+       ↓ references
+Component Tokens (Specific UI)
+```
+
+#### Token Naming Convention
+
+```
+--{component}-{property}-{variant}-{state}
+```
+
+Examples:
+- `--button-bg-primary-default`
+- `--input-border-focus`
+- `--checkbox-bg-checked`
+
+#### Component Token Categories
+
+**Button:**
+- `--button-bg-primary-default`, `--button-bg-primary-hover`, `--button-bg-primary-active`
+- `--button-bg-secondary-default`, `--button-bg-secondary-hover`
+- `--button-bg-ghost-default`, `--button-bg-ghost-hover`
+- `--button-text-primary`, `--button-text-secondary`, `--button-text-ghost`
+- `--button-border-primary`, `--button-border-secondary`
+
+**Input:**
+- `--input-bg-default`, `--input-bg-disabled`
+- `--input-text`, `--input-placeholder`
+- `--input-border-default`, `--input-border-hover`, `--input-border-focus`, `--input-border-error`
+
+**Checkbox:**
+- `--checkbox-bg-unchecked`, `--checkbox-bg-checked`, `--checkbox-bg-disabled`
+- `--checkbox-border-unchecked`, `--checkbox-border-checked`
+- `--checkbox-checkmark`
+
+**Radio:**
+- `--radio-bg-unselected`, `--radio-bg-selected`, `--radio-bg-disabled`
+- `--radio-border-unselected`, `--radio-border-selected`
+- `--radio-dot`
+
+**Switch:**
+- `--switch-bg-off`, `--switch-bg-on`, `--switch-bg-disabled`
+- `--switch-knob`, `--switch-border`
+
+**Select:**
+- `--select-bg`, `--select-text`, `--select-placeholder`
+- `--select-border-default`, `--select-border-focus`
+- `--select-option-hover`, `--select-option-selected`
+
+**Textarea:**
+- `--textarea-bg`, `--textarea-bg-disabled`
+- `--textarea-text`, `--textarea-placeholder`
+- `--textarea-border-default`, `--textarea-border-hover`, `--textarea-border-focus`
+
+#### Usage Guidelines
+
+**Do:**
+- Always use component tokens for component styling
+- Reference semantic tokens when creating new component tokens
+- Follow the naming convention consistently
+
+**Don't:**
+- Use semantic or primitive tokens directly in components
+- Use hardcoded color values in component styles
+- Skip intermediate token layers (primitive → component)
+
+#### CSS Usage Example
+
+```css
+/* Always use component tokens for components */
+.button-primary {
+  background: hsl(var(--button-bg-primary-default));
+  color: hsl(var(--button-text-primary));
+  border: 1px solid hsl(var(--button-border-primary));
+}
+
+.button-primary:hover {
+  background: hsl(var(--button-bg-primary-hover));
+}
+
+/* Don't use semantic tokens directly in components */
+.button-primary {
+  background: hsl(var(--surface-brand)); /* ❌ Wrong */
+}
+```
+
 ## Development Commands
 
 ```bash

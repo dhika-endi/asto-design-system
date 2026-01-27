@@ -4,6 +4,8 @@ import { Section } from "@/components/docs/Section";
 import { TokenTable } from "@/components/docs/TokenTable";
 import { DosDonts } from "@/components/docs/DosDonts";
 import { DocTabs } from "@/components/docs/DocTabs";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 const primitiveNeutrals = [
   { name: "--neutral-950", value: "#0a0a0a" },
@@ -297,6 +299,218 @@ const SemanticColors = () => (
   </div>
 );
 
+// Component color tokens - mapped to actual CSS variables used by each component
+
+const buttonTokens = [
+  { name: "--primary", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Default variant background (bg-primary)" },
+  { name: "--primary-foreground", value: "hsl(0 0% 100%)", primitiveToken: "white", description: "Default variant text color" },
+  { name: "--primary-hover", value: "hsl(14 80% 48%)", primitiveToken: "orange-600", description: "Default variant hover (bg-primary/90)" },
+  { name: "--destructive", value: "hsl(0 72% 51%)", primitiveToken: "red-500", description: "Destructive variant background" },
+  { name: "--destructive-foreground", value: "hsl(0 0% 98%)", primitiveToken: "neutral-50", description: "Destructive variant text" },
+  { name: "--error", value: "hsl(0 72% 51%)", primitiveToken: "red-500", description: "Danger variant text and hover border" },
+  { name: "--secondary", value: "hsl(0 0% 12%)", primitiveToken: "neutral-900", description: "Secondary/outline hover background" },
+  { name: "--secondary-foreground", value: "hsl(0 0% 85%)", primitiveToken: "neutral-200", description: "Secondary variant text" },
+  { name: "--border-glass", value: "hsl(0 0% 20%)", primitiveToken: "neutral-700", description: "Outline variant border" },
+  { name: "--border-strong", value: "hsl(0 0% 25%)", primitiveToken: "neutral-600", description: "Outline hover border" },
+  { name: "--foreground-secondary", value: "hsl(0 0% 65%)", primitiveToken: "neutral-400", description: "Tertiary variant text" },
+  { name: "--ring", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Focus ring color" },
+];
+
+const inputTokens = [
+  { name: "--background", value: "hsl(0 0% 4%)", primitiveToken: "neutral-950", description: "Input background (bg-background)" },
+  { name: "--input", value: "hsl(0 0% 12%)", primitiveToken: "neutral-900", description: "Input border color (border-input)" },
+  { name: "--foreground", value: "hsl(0 0% 98%)", primitiveToken: "neutral-50", description: "Input text color" },
+  { name: "--muted-foreground", value: "hsl(0 0% 50%)", primitiveToken: "neutral-500", description: "Placeholder text color" },
+  { name: "--foreground/20", value: "hsla(0 0% 98% / 0.2)", primitiveToken: "neutral-50 @ 20%", description: "Hover border color" },
+  { name: "--ring", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Focus ring color" },
+];
+
+const checkboxTokens = [
+  { name: "--primary", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Border color and checked background" },
+  { name: "--primary-foreground", value: "hsl(0 0% 100%)", primitiveToken: "white", description: "Checkmark color (checked state)" },
+  { name: "--ring", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Focus ring color" },
+];
+
+const radioTokens = [
+  { name: "--primary", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Border color and indicator fill" },
+  { name: "--ring", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Focus ring color" },
+];
+
+const selectTokens = [
+  { name: "--background", value: "hsl(0 0% 4%)", primitiveToken: "neutral-950", description: "Trigger background (bg-background)" },
+  { name: "--input", value: "hsl(0 0% 12%)", primitiveToken: "neutral-900", description: "Trigger border color (border-input)" },
+  { name: "--muted-foreground", value: "hsl(0 0% 50%)", primitiveToken: "neutral-500", description: "Placeholder text color" },
+  { name: "--foreground/20", value: "hsla(0 0% 98% / 0.2)", primitiveToken: "neutral-50 @ 20%", description: "Hover border color" },
+  { name: "--popover", value: "hsl(0 0% 10%)", primitiveToken: "neutral-800", description: "Dropdown content background" },
+  { name: "--popover-foreground", value: "hsl(0 0% 98%)", primitiveToken: "neutral-50", description: "Dropdown text color" },
+  { name: "--accent", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Item hover/focus background" },
+  { name: "--accent-foreground", value: "hsl(0 0% 100%)", primitiveToken: "white", description: "Item hover/focus text" },
+  { name: "--ring", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Focus ring color" },
+];
+
+const switchTokens = [
+  { name: "--primary", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Checked state background" },
+  { name: "--input", value: "hsl(0 0% 12%)", primitiveToken: "neutral-900", description: "Unchecked state background" },
+  { name: "--background", value: "hsl(0 0% 4%)", primitiveToken: "neutral-950", description: "Thumb/knob color" },
+  { name: "--ring", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Focus ring color" },
+];
+
+const textareaTokens = [
+  { name: "--background", value: "hsl(0 0% 4%)", primitiveToken: "neutral-950", description: "Textarea background (bg-background)" },
+  { name: "--input", value: "hsl(0 0% 12%)", primitiveToken: "neutral-900", description: "Border color (border-input)" },
+  { name: "--muted-foreground", value: "hsl(0 0% 50%)", primitiveToken: "neutral-500", description: "Placeholder text color" },
+  { name: "--foreground/20", value: "hsla(0 0% 98% / 0.2)", primitiveToken: "neutral-50 @ 20%", description: "Hover border color" },
+  { name: "--ring", value: "hsl(14 80% 55%)", primitiveToken: "orange-500", description: "Focus ring color" },
+];
+
+interface CollapsibleSectionProps {
+  title: string;
+  description: string;
+  defaultOpen?: boolean;
+  children: React.ReactNode;
+}
+
+const CollapsibleSection = ({ title, description, defaultOpen = false, children }: CollapsibleSectionProps) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
+
+  return (
+    <div className="border border-border rounded-lg overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-3 sm:p-4 bg-surface-elevated hover:bg-surface-overlay transition-colors text-left gap-3"
+      >
+        <div className="min-w-0">
+          <h3 className="text-base sm:text-lg font-semibold text-foreground">{title}</h3>
+          <p className="text-xs sm:text-sm text-foreground-secondary mt-1">{description}</p>
+        </div>
+        {isOpen ? (
+          <ChevronDown className="w-5 h-5 text-foreground-muted shrink-0" />
+        ) : (
+          <ChevronRight className="w-5 h-5 text-foreground-muted shrink-0" />
+        )}
+      </button>
+      {isOpen && <div className="p-3 sm:p-4 border-t border-border overflow-x-auto">{children}</div>}
+    </div>
+  );
+};
+
+const HierarchyDiagram = () => (
+  <div className="p-4 sm:p-6 bg-surface-elevated rounded-lg border border-border mb-6 sm:mb-8">
+    <h4 className="font-medium text-foreground mb-3 sm:mb-4 text-sm sm:text-base">Token Hierarchy</h4>
+    <div className="flex flex-col items-center gap-2 text-xs sm:text-sm">
+      <div className="px-3 sm:px-4 py-2 bg-background-muted rounded-lg border border-border-subtle text-foreground-secondary text-center">
+        Primitive Tokens <span className="text-foreground-muted">(Foundation)</span>
+      </div>
+      <div className="text-foreground-muted">↓ references</div>
+      <div className="px-3 sm:px-4 py-2 bg-background-muted rounded-lg border border-border-subtle text-foreground-secondary text-center">
+        Semantic Tokens <span className="text-foreground-muted">(Context)</span>
+      </div>
+      <div className="text-foreground-muted">↓ references</div>
+      <div className="px-3 sm:px-4 py-2 bg-primary/10 rounded-lg border border-primary/30 text-primary font-medium text-center">
+        Component Tokens <span className="text-primary/70">(Specific UI)</span>
+      </div>
+    </div>
+  </div>
+);
+
+const ComponentColors = () => (
+  <div className="space-y-8 sm:space-y-12">
+    <Section
+      title="Understanding Component Colors"
+      description="Component colors sit on top of semantic tokens, providing component-specific naming while maintaining flexibility through semantic references."
+    >
+      <HierarchyDiagram />
+
+      <div className="p-3 sm:p-4 bg-surface-elevated rounded-lg border border-border mb-4 sm:mb-6">
+        <h4 className="font-medium text-foreground mb-2 text-sm sm:text-base">How It Works</h4>
+        <p className="text-xs sm:text-sm text-foreground-secondary mb-2">
+          Components reference semantic CSS variables via Tailwind utility classes. Each component maps to specific tokens:
+        </p>
+        <div className="mt-3 text-xs sm:text-sm text-foreground-secondary">
+          <ul className="list-disc list-inside space-y-1 text-foreground-muted">
+            <li><code className="text-[10px] sm:text-xs">bg-primary</code> → <code className="text-[10px] sm:text-xs">--primary</code></li>
+            <li><code className="text-[10px] sm:text-xs">border-input</code> → <code className="text-[10px] sm:text-xs">--input</code></li>
+            <li><code className="text-[10px] sm:text-xs">text-muted-foreground</code> → <code className="text-[10px] sm:text-xs">--muted-foreground</code></li>
+          </ul>
+        </div>
+      </div>
+    </Section>
+
+    <Section title="Component Tokens">
+      <div className="space-y-4">
+        <CollapsibleSection
+          title="Button"
+          description="Semantic tokens used across button variants (default, secondary, destructive, outline, ghost, tertiary, danger, link)."
+          defaultOpen={true}
+        >
+          <TokenTable tokens={buttonTokens} showSwatch />
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          title="Input"
+          description="Tokens for text input fields including background, border, placeholder, and focus states."
+        >
+          <TokenTable tokens={inputTokens} showSwatch />
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          title="Checkbox"
+          description="Tokens for checkbox checked/unchecked states and checkmark indicator."
+        >
+          <TokenTable tokens={checkboxTokens} showSwatch />
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          title="Radio Button"
+          description="Tokens for radio button selected/unselected states and indicator dot."
+        >
+          <TokenTable tokens={radioTokens} showSwatch />
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          title="Select / Dropdown"
+          description="Tokens for select trigger, dropdown content, and item hover/focus states."
+        >
+          <TokenTable tokens={selectTokens} showSwatch />
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          title="Switch"
+          description="Tokens for toggle switch on/off states and thumb indicator."
+        >
+          <TokenTable tokens={switchTokens} showSwatch />
+        </CollapsibleSection>
+
+        <CollapsibleSection
+          title="Textarea"
+          description="Tokens for textarea background, border, placeholder, and focus states."
+        >
+          <TokenTable tokens={textareaTokens} showSwatch />
+        </CollapsibleSection>
+      </div>
+    </Section>
+
+    <Section title="Usage Guidelines">
+      <DosDonts
+        dos={[
+          "Use semantic token classes (bg-primary, border-input) in components",
+          "Reference the CSS variable layer for theming consistency",
+          "Keep component styling connected to the token hierarchy",
+          "Use Tailwind opacity modifiers (bg-primary/90) for hover states",
+          "Maintain focus ring consistency with ring and ring-offset tokens",
+        ]}
+        donts={[
+          "Use hardcoded hex/rgb values directly in component styles",
+          "Create custom one-off color classes outside the token system",
+          "Mix semantic tokens from unrelated contexts",
+          "Skip the focus-visible ring pattern for interactive elements",
+          "Override token values without updating the design system",
+        ]}
+      />
+    </Section>
+  </div>
+);
+
 const ColorPage = () => {
   const tabs = [
     {
@@ -308,6 +522,11 @@ const ColorPage = () => {
       id: "semantic",
       label: "Semantic",
       content: <SemanticColors />,
+    },
+    {
+      id: "component",
+      label: "Component",
+      content: <ComponentColors />,
     },
   ];
 

@@ -160,6 +160,79 @@
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 12%;
     --sidebar-ring: 14 80% 55%;
+
+    /* ===== COMPONENT COLORS ===== */
+
+    /* Button - Primary */
+    --button-bg-primary-default: var(--primary);
+    --button-bg-primary-hover: 10 70% 40%;
+    --button-bg-primary-active: 8 65% 32%;
+    --button-bg-primary-disabled: var(--surface-elevated);
+    --button-text-primary: 0 0% 100%;
+    --button-border-primary: var(--primary);
+
+    /* Button - Secondary */
+    --button-bg-secondary-default: transparent;
+    --button-bg-secondary-hover: var(--surface-elevated);
+    --button-bg-secondary-active: var(--surface-overlay);
+    --button-text-secondary: var(--foreground-secondary);
+    --button-border-secondary: var(--border);
+
+    /* Button - Ghost */
+    --button-bg-ghost-default: transparent;
+    --button-bg-ghost-hover: 6 60% 24% / 0.3;
+    --button-text-ghost: var(--primary);
+
+    /* Input */
+    --input-bg-default: var(--surface-elevated);
+    --input-bg-disabled: var(--surface);
+    --input-text: var(--foreground);
+    --input-placeholder: var(--foreground-muted);
+    --input-border-default: var(--border);
+    --input-border-hover: var(--border-strong);
+    --input-border-focus: var(--primary);
+    --input-border-error: var(--error);
+
+    /* Checkbox */
+    --checkbox-bg-unchecked: transparent;
+    --checkbox-bg-checked: var(--primary);
+    --checkbox-bg-disabled: var(--surface);
+    --checkbox-border-unchecked: var(--border);
+    --checkbox-border-checked: var(--primary);
+    --checkbox-checkmark: 0 0% 100%;
+
+    /* Radio Button */
+    --radio-bg-unselected: transparent;
+    --radio-bg-selected: var(--primary);
+    --radio-bg-disabled: var(--surface);
+    --radio-border-unselected: var(--border);
+    --radio-border-selected: var(--primary);
+    --radio-dot: 0 0% 100%;
+
+    /* Switch */
+    --switch-bg-off: var(--surface-elevated);
+    --switch-bg-on: var(--primary);
+    --switch-bg-disabled: var(--surface);
+    --switch-knob: 0 0% 100%;
+    --switch-border: var(--border);
+
+    /* Select / Dropdown */
+    --select-bg: var(--surface-elevated);
+    --select-text: var(--foreground);
+    --select-placeholder: var(--foreground-muted);
+    --select-border-default: var(--border);
+    --select-border-focus: var(--primary);
+    --select-option-hover: var(--surface-overlay);
+    --select-option-selected: 14 80% 55% / 0.15;
+
+    /* Textarea */
+    --textarea-bg: var(--surface-elevated);
+    --textarea-bg-disabled: var(--surface);
+    --textarea-text: var(--foreground);
+    --textarea-placeholder: var(--foreground-muted);
+    --textarea-border-default: var(--border);
+    --textarea-border-hover: var(--border-strong);
+    --textarea-border-focus: var(--primary);
   }
 
   .light {
@@ -256,6 +329,79 @@
     --sidebar-accent-foreground: 0 0% 9%;
     --sidebar-border: 0 0% 88%;
     --sidebar-ring: 14 80% 50%;
+
+    /* ===== COMPONENT COLORS (Light Mode) ===== */
+
+    /* Button - Primary */
+    --button-bg-primary-default: var(--primary);
+    --button-bg-primary-hover: 14 80% 45%;
+    --button-bg-primary-active: 14 80% 40%;
+    --button-bg-primary-disabled: var(--surface-elevated);
+    --button-text-primary: 0 0% 100%;
+    --button-border-primary: var(--primary);
+
+    /* Button - Secondary */
+    --button-bg-secondary-default: transparent;
+    --button-bg-secondary-hover: var(--surface-elevated);
+    --button-bg-secondary-active: var(--surface-overlay);
+    --button-text-secondary: var(--foreground-secondary);
+    --button-border-secondary: var(--border);
+
+    /* Button - Ghost */
+    --button-bg-ghost-default: transparent;
+    --button-bg-ghost-hover: 24 100% 95%;
+    --button-text-ghost: var(--primary);
+
+    /* Input */
+    --input-bg-default: var(--surface-elevated);
+    --input-bg-disabled: var(--surface);
+    --input-text: var(--foreground);
+    --input-placeholder: var(--foreground-muted);
+    --input-border-default: var(--border);
+    --input-border-hover: var(--border-strong);
+    --input-border-focus: var(--primary);
+    --input-border-error: var(--error);
+
+    /* Checkbox */
+    --checkbox-bg-unchecked: transparent;
+    --checkbox-bg-checked: var(--primary);
+    --checkbox-bg-disabled: var(--surface);
+    --checkbox-border-unchecked: var(--border);
+    --checkbox-border-checked: var(--primary);
+    --checkbox-checkmark: 0 0% 100%;
+
+    /* Radio Button */
+    --radio-bg-unselected: transparent;
+    --radio-bg-selected: var(--primary);
+    --radio-bg-disabled: var(--surface);
+    --radio-border-unselected: var(--border);
+    --radio-border-selected: var(--primary);
+    --radio-dot: 0 0% 100%;
+
+    /* Switch */
+    --switch-bg-off: var(--surface-elevated);
+    --switch-bg-on: var(--primary);
+    --switch-bg-disabled: var(--surface);
+    --switch-knob: 0 0% 100%;
+    --switch-border: var(--border);
+
+    /* Select / Dropdown */
+    --select-bg: var(--surface-elevated);
+    --select-text: var(--foreground);
+    --select-placeholder: var(--foreground-muted);
+    --select-border-default: var(--border);
+    --select-border-focus: var(--primary);
+    --select-option-hover: var(--surface-overlay);
+    --select-option-selected: 14 80% 50% / 0.15;
+
+    /* Textarea */
+    --textarea-bg: var(--surface-elevated);
+    --textarea-bg-disabled: var(--surface);
+    --textarea-text: var(--foreground);
+    --textarea-placeholder: var(--foreground-muted);
+    --textarea-border-default: var(--border);
+    --textarea-border-hover: var(--border-strong);
+    --textarea-border-focus: var(--primary);
   }
 }
 
@@ -340,7 +486,8 @@
 @layer components {
   /* Document container - mobile first with proper padding */
   .doc-container {
-    @apply w-full max-w-4xl mx-auto px-4 py-6;
+    @apply w-full mx-auto px-4 py-6;
+    max-width: 100%;
     box-sizing: border-box;
   }
 
@@ -353,6 +500,7 @@
   @media (min-width: 1024px) {
     .doc-container {
       @apply px-8 py-10;
+      max-width: 56rem; /* max-w-4xl */
     }
   }
 

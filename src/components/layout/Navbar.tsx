@@ -28,6 +28,7 @@ import {
   AlignLeft,
   Rocket,
   Wrench,
+  Paintbrush,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -58,6 +59,11 @@ const mobileNavigation: NavItem[] = [
       { label: "Radius", href: "/foundations/radius", icon: Square },
       { label: "Elevation", href: "/foundations/elevation", icon: Layers2 },
     ],
+  },
+  {
+    label: "Color Generator",
+    href: "/color-generator",
+    icon: Paintbrush,
   },
   {
     label: "Tokens",
@@ -187,10 +193,15 @@ export const Navbar = () => {
     if (path === "/foundations/tokens/builder") {
       return location.pathname === "/foundations/tokens/builder";
     }
+    if (path === "/color-generator") {
+      return location.pathname === "/color-generator";
+    }
     if (path === "/getting-started") {
       const isTokenBuilder = location.pathname === "/foundations/tokens/builder";
+      const isColorGenerator = location.pathname === "/color-generator";
       return (
         !isTokenBuilder &&
+        !isColorGenerator &&
         (location.pathname.startsWith("/getting-started") ||
           location.pathname.startsWith("/foundations") ||
           location.pathname.startsWith("/components"))
@@ -202,6 +213,7 @@ export const Navbar = () => {
   const navLinks = [
     { path: "/", label: "Home", icon: Layers2 },
     { path: "/getting-started", label: "Design System", icon: Layers2 },
+    { path: "/color-generator", label: "Color Generator", icon: Paintbrush },
     { path: "/foundations/tokens/builder", label: "Token Generator", icon: Wand2 },
   ];
 

@@ -24,6 +24,7 @@ import {
   AlignLeft,
   Rocket,
   Wrench,
+  Paintbrush,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
@@ -50,6 +51,11 @@ const navigation: NavItem[] = [
       { label: "Radius", href: "/foundations/radius", icon: Square },
       { label: "Elevation", href: "/foundations/elevation", icon: Layers2 },
     ],
+  },
+  {
+    label: "Color Generator",
+    href: "/color-generator",
+    icon: Paintbrush,
   },
   {
     label: "Tokens",

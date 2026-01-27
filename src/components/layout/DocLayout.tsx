@@ -32,11 +32,11 @@ export const DocLayout = ({ children }: DocLayoutProps) => {
 
       {/* Main content area */}
       <main
-        className={`min-h-screen relative pt-14 transition-all duration-300 w-full ${
+        className={`min-h-screen relative pt-14 transition-all duration-300 overflow-x-hidden ${
           sidebarCollapsed ? "md:ml-0" : "md:ml-64"
         }`}
       >
-        <div className="doc-container animate-fade-in max-w-5xl w-full">
+        <div className="doc-container animate-fade-in">
           {children}
         </div>
       </main>

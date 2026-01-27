@@ -26,6 +26,7 @@ import RadioPage from "./pages/components/RadioPage";
 import SelectPage from "./pages/components/SelectPage";
 import SwitchPage from "./pages/components/SwitchPage";
 import TextareaPage from "./pages/components/TextareaPage";
+import ColorGeneratorPage from "./pages/ColorGeneratorPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ const App = () => (
             <Route path="/foundations/spacing" element={<SpacingPage />} />
             <Route path="/foundations/radius" element={<RadiusPage />} />
             <Route path="/foundations/elevation" element={<ElevationPage />} />
+            <Route path="/color-generator" element={<ColorGeneratorPage />} />
             <Route path="/foundations/tokens/overview" element={<TokenOverviewPage />} />
             <Route path="/foundations/tokens/builder" element={<TokenBuilderPage />} />
             <Route path="/foundations/tokens/specifications" element={<TokenSpecificationsPage />} />
